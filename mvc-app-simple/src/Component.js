@@ -16,7 +16,7 @@ sap.ui.define([
 
 			"config": {
 				"i18nBundle": "sapui5.demo.mvcapp.i18n.i18n",
-				"serviceUrl": "/mvc-app/src/service/data.json"
+				"serviceUrl": "/mvc-app-simple/src/service/data.json"
 			},
 
 			"routing": {

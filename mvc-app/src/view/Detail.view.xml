@@ -12,6 +12,9 @@
 				id="objectHeader"
 				title="{Name}"
 				number="{i18n>ID}: {ID}">
+				<ObjectAttribute
+				    text="{Address/Country}">
+				</ObjectAttribute>
 			</ObjectHeader>
 		</content>
 	</Page>

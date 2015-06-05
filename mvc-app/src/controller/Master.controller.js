@@ -33,6 +33,8 @@ sap.ui.define([
 		 *
 		 * @public
 		 */
+		
+		// TODO - we don't need FLP stuff...
 		onNavBack : function () {
 			var oHistory = sap.ui.core.routing.History.getInstance(),
 				sPreviousHash = oHistory.getPreviousHash(),

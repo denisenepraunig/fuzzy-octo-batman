@@ -78,13 +78,13 @@
         oTable.bindItems("/Suppliers", oTemplate);
         oTable.addStyleClass("sapUiResponsiveMargin");
         
-        var oPage = new sap.m.Page({
+        var oPageMaster = new sap.m.Page("masterPage", {
     		title : "Supplier Overview",
     		content : [oTable]
     	});
         
         var oApp = new sap.m.App();
-        oApp.addPage(oPage);
+        oApp.addPage(oPageMaster);
         oApp.placeAt("content");
 		
 	</script>

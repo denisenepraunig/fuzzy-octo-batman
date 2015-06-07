@@ -15,7 +15,10 @@
 			data-sap-ui-xx-bindingSyntax="complex">
 	</script>
 	<script>
-        var oData = {  
+        var oData = {
+            
+            "CountSuppliers" : "2",
+            
             "Suppliers":[  
                 {  
                     "ID":0,
@@ -80,9 +83,18 @@
     			})
     		]
     	});
+    	
+    	var oTableHeader = new sap.m.Toolbar({
+		content : [
+    			new sap.m.Title({
+    				text : "Number of Suppliers: {/CountSuppliers}"
+    			})
+    		]
+	    });
         
         var oTable = new sap.m.Table({
-            columns : aColumns
+            columns : aColumns,
+            headerToolbar : oTableHeader
         });
         
         oTable.bindItems("/Suppliers", oTemplate);
@@ -115,6 +127,7 @@
         var oApp = new sap.m.App("myApp", { 
             initialPage:"masterPage"
         });
+        
         oApp.addPage(oPageMaster).addPage(oPageDetail);
         oApp.placeAt("content");
 		

@@ -16,3 +16,8 @@ sap.ui.define([
         }
 	});
 });
+
+// would be possible, but we still have
+// global oApp, and who knows for sure
+// that we getParent will return sap.m.App
+// var oApp = this.getView().getParent();

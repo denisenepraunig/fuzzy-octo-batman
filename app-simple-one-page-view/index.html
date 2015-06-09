@@ -49,11 +49,14 @@
         
         sap.ui.getCore().setModel(oModel);
         
-        var oPageMasterView = sap.ui.view({ type: sap.ui.core.mvc.ViewType.JS,
+        var oPageMasterView = sap.ui.view("masterPage",
+        { type: sap.ui.core.mvc.ViewType.JS,
             viewName: "sapui5.demo.mvcapp.view.Master",
         });
         
-        var oApp = new sap.m.App();
+         var oApp = new sap.m.App({
+            initialPage:"masterPage"
+        });
         oApp.addPage(oPageMasterView);
         oApp.placeAt("content");
 		

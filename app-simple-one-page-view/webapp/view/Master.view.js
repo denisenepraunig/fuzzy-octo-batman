@@ -21,6 +21,7 @@ sap.ui.jsview("sapui5.demo.mvcapp.view.Master", {
         ];
         
         var oTemplate = new sap.m.ColumnListItem({
+            type: "Navigation",
     		cells : [
     			new sap.m.ObjectIdentifier({
     				text : "{ID}"

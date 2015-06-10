@@ -1,0 +1,16 @@
+<core:View 
+  xmlns="sap.m" 
+  xmlns:core="sap.ui.core" 
+  controllerName="sapui5.demo.viewtypes.controller.View">
+  <Page title="Hello World!">
+    <Panel>
+      <Button 
+        text="Hello World!" 
+        icon="sap-icon://action" 
+        type="Accept" 
+        width="200px" 
+        press="onPress">
+      </Button>
+    </Panel>
+  </Page>
+</core:View>

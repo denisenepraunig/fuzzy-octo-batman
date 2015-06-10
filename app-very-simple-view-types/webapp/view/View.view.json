@@ -1,0 +1,19 @@
+{
+    "Type": "sap.ui.core.mvc.JSONView",
+    "controllerName": "sapui5.demo.viewtypes.controller.View",
+    "content": [{
+        "Type": "sap.m.Page",
+        "title": "Hello World!",
+        "content": [{
+            "Type": "sap.m.Panel",
+            "content": [{
+                "Type": "sap.m.Button",
+                "text": "Hello World!",
+                "icon": "sap-icon://accept",
+                "width": "200px",
+                "type": "Accept",
+                "press": "onPress"
+            }]
+        }]
+    }]
+}

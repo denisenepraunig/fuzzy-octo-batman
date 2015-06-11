@@ -32,7 +32,7 @@
 				<items>
 					<ColumnListItem
 						type="Navigation"
-						press="onPress">
+						press="onListPress">
 						<cells>
 							<ObjectIdentifier
 								title="{ID}"/>

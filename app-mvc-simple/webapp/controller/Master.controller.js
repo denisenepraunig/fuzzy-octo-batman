@@ -22,7 +22,7 @@ sap.ui.define([
 		 * @param {sap.ui.base.Event} oEvent the table selectionChange event
 		 * @public
 		 */
-		onPress : function (oEvent) {
+		onListPress : function (oEvent) {
 			// The source is the list item that got pressed
 			this._showObject(oEvent.getSource());
 		},

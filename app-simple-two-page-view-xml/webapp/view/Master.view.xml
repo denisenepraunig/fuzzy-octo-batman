@@ -9,26 +9,27 @@
 				items="{/Suppliers}">
 				<headerToolbar>
 					<Toolbar>
-						<Label id="tableHeader" text="{masterTableTitle}"/>
+						<Label id="tableHeader" 
+						    text="Number of Suppliers: {/CountSuppliers}"/>
 					</Toolbar>
 				</headerToolbar>
 				<columns>
-					<Column id="nameColumn">
-						<Text text="{i18n>tableIDColumnTitle}" id="IDColumnTitle"/>
+					<Column>
+						<Text text="ID"/>
 					</Column>
-					<Column id="unitNumberColumn">
-						<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
+					<Column>
+						<Text text="Name"/>
 					</Column>
 				</columns>
 				<items>
 					<ColumnListItem
 						type="Navigation"
-						press="onPress">
+						press="onListPress">
 						<cells>
 							<ObjectIdentifier
-								title="{ID}"/>
+								text="{ID}"/>
 							<ObjectIdentifier
-								title="{Name}"/>
+								text="{Name}"/>
 						</cells>
 					</ColumnListItem>
 				</items>

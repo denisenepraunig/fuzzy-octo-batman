@@ -35,9 +35,9 @@
 						press="onListPress">
 						<cells>
 							<ObjectIdentifier
-								title="{ID}"/>
+								text="{ID}"/>
 							<ObjectIdentifier
-								title="{Name}"/>
+								text="{Name}"/>
 						</cells>
 					</ColumnListItem>
 				</items>

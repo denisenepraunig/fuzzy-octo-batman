@@ -14,11 +14,11 @@
 					</Toolbar>
 				</headerToolbar>
 				<columns>
-					<Column>
-						<Text text="ID"/>
+					<Column><header>
+						<Text text="ID"/></header>
 					</Column>
-					<Column>
-						<Text text="Name"/>
+					<Column><header>
+						<Text text="Name"/></header>
 					</Column>
 				</columns>
 				<items>

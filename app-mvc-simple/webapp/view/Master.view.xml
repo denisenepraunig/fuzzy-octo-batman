@@ -22,11 +22,11 @@
 					</Toolbar>
 				</headerToolbar>
 				<columns>
-					<Column id="nameColumn">
-						<Text text="{i18n>tableIDColumnTitle}" id="IDColumnTitle"/>
+					<Column id="nameColumn"><header>
+						<Text text="{i18n>tableIDColumnTitle}" id="IDColumnTitle"/></header>
 					</Column>
-					<Column id="unitNumberColumn">
-						<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
+					<Column id="unitNumberColumn"><header>
+						<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/></header>
 					</Column>
 				</columns>
 				<items>

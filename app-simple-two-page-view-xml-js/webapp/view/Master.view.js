@@ -47,7 +47,6 @@ sap.ui.jsview("sapui5.demo.mvcapp.view.Master", {
         });
         
         oTable.bindItems("/Suppliers", oTemplate);
-        oTable.addStyleClass("sapUiResponsiveMargin");
         
         var oPageMaster = new sap.m.Page({
     		title : "Supplier Overview",

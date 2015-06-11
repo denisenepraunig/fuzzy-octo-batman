@@ -1,4 +1,4 @@
- sap.ui.define([
+sap.ui.define([
 		"sapui5/demo/mvcapp/controller/BaseController"
 	], function (BaseController) {
 	"use strict";
@@ -25,7 +25,7 @@
 		 * Navigates back to the Master
 		 * @function
 		 */
-		onNavBack : function () {
+		onNavPress : function () {
 			this.myNavBack("master");
 		},
 

@@ -4,7 +4,7 @@
 	xmlns="sap.m">
 	<Page
 		id="page"
-		navButtonPress="onNavBack"
+		navButtonPress="onNavPress"
 		showNavButton="true"
 		title="{i18n>detailTitle}">
 		<content>

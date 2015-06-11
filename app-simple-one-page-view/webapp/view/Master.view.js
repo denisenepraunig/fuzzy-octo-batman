@@ -31,9 +31,18 @@ sap.ui.jsview("sapui5.demo.mvcapp.view.Master", {
     			})
     		]
     	});
+    	
+    	var oTableHeader = new sap.m.Toolbar({
+		content : [
+    			new sap.m.Title({
+    				text : "Number of Suppliers: {/CountSuppliers}"
+    			})
+    		]
+	    });
         
         var oTable = new sap.m.Table({
-            columns : aColumns
+            columns : aColumns,
+            headerToolbar : oTableHeader
         });
         
         oTable.bindItems("/Suppliers", oTemplate);

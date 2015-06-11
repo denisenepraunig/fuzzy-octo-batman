@@ -18,7 +18,7 @@
 				growingScrollToLoad="true">
 				<headerToolbar>
 					<Toolbar>
-						<Label id="tableHeader" text="{masterTableTitle}"/>
+						<Title id="tableHeader" text="{masterTableTitle}"/>
 					</Toolbar>
 				</headerToolbar>
 				<columns>

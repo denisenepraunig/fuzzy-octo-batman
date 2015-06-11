@@ -9,7 +9,7 @@
 				items="{/Suppliers}">
 				<headerToolbar>
 					<Toolbar>
-						<Label id="tableHeader" 
+						<Title
 						    text="Number of Suppliers: {/CountSuppliers}"/>
 					</Toolbar>
 				</headerToolbar>

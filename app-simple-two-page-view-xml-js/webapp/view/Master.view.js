@@ -7,7 +7,7 @@ sap.ui.jsview("sapui5.demo.mvcapp.view.Master", {
 
    createContent: function(oController) {
        
-     var aColumns = [ 
+        var aColumns = [ 
             new sap.m.Column({
                 header : new sap.m.Text({
 				    text : "ID"

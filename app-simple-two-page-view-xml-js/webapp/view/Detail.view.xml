@@ -3,15 +3,14 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 	<Page
-		id="page"
-		navButtonPress="onNavBack"
+		navButtonPress="onNavPress"
 		showNavButton="true"
-		title="{i18n>detailTitle}">
+		title="Supplier Detail">
 		<content>
 			<ObjectHeader
 				id="objectHeader"
 				title="{Name}"
-				number="{i18n>ID}: {ID}">
+				number="ID: {ID}">
 				<ObjectAttribute
 				    text="{Address/Country}">
 				</ObjectAttribute>

@@ -21,11 +21,13 @@
         //load the data asynchronously
         oModel.loadData("service/data.json");
         
+        // attach to the requestCompleted event in order to know when manipulation of the data is safe:
         oModel.attachRequestCompleted(function(oEvent){
         //get and manipulate particular value:
             var sSupplierName = oModel.getProperty("/Suppliers/0/Name");
             sSupplierName = sSupplierName + " Sammamish";
             oModel.setProperty("/Suppliers/0/Name", sSupplierName);
+            oModel.getProperty("/Suppliers/0");
         });
         
         sap.ui.getCore().setModel(oModel);

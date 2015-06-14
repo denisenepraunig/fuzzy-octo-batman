@@ -6,8 +6,11 @@ sap.ui.define([
 	return Controller.extend("sapui5.demo.mvcapp.controller.Master", {
 	    
 	    onListPress : function(oEvent) {
-                
-            var sPageId = "detailPage";
+            
+            // option 1: change value of sPageId to new ID hardcoded
+            // var sPageId = "appview—detailPage";
+            // option 2: change of sPageId to new ID dynamically
+            var sPageId = oApp.getPages()[1].getId();
             oApp.to(sPageId);
             
             var oPage = oApp.getPage(sPageId);
@@ -16,3 +19,7 @@ sap.ui.define([
         }
 	});
 });
+
+// is not really good...
+// var sPageId = this.createId("detailPage");
+// we are already tight coupled

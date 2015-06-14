@@ -1,0 +1,14 @@
+>  oPage
+<  null
+>  oApp.getPages();
+<  [M.createClass.f, M.createClass.f]
+>  oApp.getPages()[1];
+<  M.c… s.f {
+    bAllowTextSelection: true,
+    mEventRegistry: Object,
+    sId: "appview--detailPage",
+    mProperties: d,
+    mAggregations: Object…
+  }
+>  oApp.getPages()[1].getId();
+<  "appview--detailPage"

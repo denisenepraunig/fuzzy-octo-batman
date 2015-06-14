@@ -1,0 +1,5 @@
+<Table 
+  class="sapUiResponsiveMargin" 
+  width="auto" 
+  items="{/Suppliers}">
+    ...

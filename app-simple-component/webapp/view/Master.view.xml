@@ -6,6 +6,8 @@
 		title="Supplier Overview">
 		<content>
 			<Table
+			    class="sapUiResponsiveMargin"
+			    width="auto"
 				items="{/Suppliers}">
 				<headerToolbar>
 					<Toolbar>

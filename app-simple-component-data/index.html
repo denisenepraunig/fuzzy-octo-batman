@@ -12,7 +12,7 @@
 			data-sap-ui-libs="sap.m"
 			data-sap-ui-theme="sap_bluecrystal"
 			data-sap-ui-compatVersion="edge"
-			data-sap-ui-preload="async"
+			data-sap-ui-xx-bindingSyntax="complex"
 			data-sap-ui-resourceroots='{"sapui5.demo.mvcapp": "./webapp/"}'>
 	</script>
 	<script>
@@ -25,6 +25,8 @@
 				"sap/ui/core/ComponentContainer",
 				"sapui5/demo/mvcapp/Component"
 			], function (Shell, ComponentContainer, Component) {
+			    
+				// initialize the UI component
 				new Shell({
 					app: new ComponentContainer({
 						height : "100%",

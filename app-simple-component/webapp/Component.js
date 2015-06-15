@@ -7,15 +7,14 @@ sap.ui.define([
 	return UIComponent.extend("sapui5.demo.mvcapp.Component", {
 
     	metadata : {
-    		rootView : "sapui5.demo.mvcapp.view.App",
-    		dependencies : {
-    			libs : [
-    				"sap.m"
-    			]
-    		}
+    		"rootView" : "sapui5.demo.mvcapp.view.App"
     	},
 		
     	createContent : function() {
+    	    
+    	    // call the base component's createContent function
+			var oRootView = UIComponent.prototype.createContent.apply(this, arguments);
+			
             var oData = {
                 "CountSuppliers" : "2",
                 "Suppliers":[  
@@ -50,13 +49,6 @@ sap.ui.define([
             // important to set the model on the component
             // and not on the sapui5 core!!!!
             this.setModel(oModel);
-
-			// call the base component's createContent function
-			//var oRootView = UIComponent.prototype.createContent.apply(this, arguments);
-			var oRootView = sap.ui.view("appview", { 
-                type: sap.ui.core.mvc.ViewType.XML,
-                viewName: "sapui5.demo.mvcapp.view.App"
-            });
 			
 			oApp = oRootView.byId("app");
 			return oRootView;

@@ -35,6 +35,25 @@
         value: "{/Suppliers/0/Name}"
       });
       oInput.placeAt("content");
+      
+      var oZipInput = new sap.m.Input({
+        value: {
+            path:"/Suppliers/0/Address/ZipCode",
+            type: new sap.ui.model.type.Integer({
+                  minIntegerDigits: 5
+            },{
+                minimum: 1,
+                maximum: 99999999
+            })
+        }
+      });
+      oZipInput.placeAt("content");
+      oZipInput.attachParseError(function(){
+        alert("Parse Error occurred - this is no integer");
+      });
+      oZipInput.attachValidationError(function(oControlEvent){
+       alert ("Validation error occurred - some constraints were violated: " + oControlEvent.getParameters().newValue + " is not between minimum and maximum");
+      });
     
   </script>
 </head>

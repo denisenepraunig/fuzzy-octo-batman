@@ -1,0 +1,9 @@
+{
+  "mockpreview": {
+    "mockUri": "webapp/service/data.json",
+    "metadataFilePath": "",
+    "mockRequestsFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false
+  }
+}

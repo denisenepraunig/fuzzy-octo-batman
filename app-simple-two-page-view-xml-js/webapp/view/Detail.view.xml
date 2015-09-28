@@ -3,8 +3,11 @@
 		<content>
 			<ObjectHeader number="ID: {ID}" title="{Name}">
 				<attributes>
-					<ObjectAttribute text="{Address/Country}"></attributes>
-				</ObjectAttribute>
+					<ObjectAttribute text="{Address/Country}">
+						
+						</ObjectAttribute>
+					</attributes>
+				
 			</ObjectHeader>
 		</content>
 	</Page>

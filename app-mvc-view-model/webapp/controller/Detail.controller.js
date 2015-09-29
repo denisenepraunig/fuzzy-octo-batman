@@ -41,7 +41,7 @@ sap.ui.define([
 		
 		onNavUp : function() {
 		    this.getRouter().navTo("detail", {id: sID});
-		}
+		},
 
 		/**
 		 * Sorts the products table after ID

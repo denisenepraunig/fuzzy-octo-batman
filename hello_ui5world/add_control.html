@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+<title>Hello World</title>
+
+<script id='sap-ui-bootstrap'
+    src='../resources/sap-ui-core.js'
+    data-sap-ui-theme='sap_bluecrystal'
+    data-sap-ui-libs='sap.m'
+    data-sap-ui-preload='async'>
+
+</script>
+
+<script>
+         sap.ui.getCore().attachInit(function () {
+			 var oImage = new sap.m.Image();
+             oImage.setSrc("img/UI5_logo.png");
+             oImage.setDecorative(false);
+             oImage.setAlt("SAPUI5 Logo");
+             oImage.placeAt("content");
+         });
+</script>
+
+</head>
+<body class='sapUiBody'>
+    <div id='content'></div>
+</body>
+</html>

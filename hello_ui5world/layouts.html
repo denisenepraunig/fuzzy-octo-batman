@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+<title>Hello World</title>
+
+<script id='sap-ui-bootstrap'
+    src='../resources/sap-ui-core.js'
+    data-sap-ui-theme='sap_bluecrystal'
+    data-sap-ui-libs='sap.m,sap.ui.layout'
+    data-sap-ui-preload='async'>
+
+</script>
+
+<script>
+         sap.ui.getCore().attachInit(function () {
+  
+         	 var oImage = new sap.m.Image({
+             	src: "img/UI5_logo.png",
+             	decorative: false,
+             	alt: "SAPUI5 Logo"
+             });
+             
+             oImage.ontap = function(oEvent) {
+				alert("Hello UI5 World!");
+             };
+             
+             // defining the event handler on instantiation:
+             var onPressImage = function(oEvent){
+             	alert("Hello UI5!");
+             }
+
+             var oImage2 = new sap.m.Image({
+             	src: "img/UI5_logo.png",
+             	decorative: false,
+             	alt: "SAPUI5 Logo",
+             	press: onPressImage
+             });
+             
+             var oLabel = new sap.m.Label("rbgLabel",{
+             	text: "Which logo do you like better?"
+             });
+             
+             var oRadioButton = new sap.m.RadioButton({
+             	text: "Left Logo"
+             });
+
+             var oRadioButton2 = new sap.m.RadioButton({
+             	text: "Right Logo"
+             });
+
+             var oRadioButtonGroup = new sap.m.RadioButtonGroup({
+             	columns: 2,
+             	ariaLabelledBy: oLabel
+             });
+             oRadioButtonGroup.addButton(oRadioButton);
+             oRadioButtonGroup.addButton(oRadioButton2);
+
+             var oLabel2 = new sap.m.Label("rbg2Label", {
+             	text: "Do you speak JavaScript?"
+             });
+
+             var oRadioButtonGroup2 = new sap.m.RadioButtonGroup({
+            	columns: 2,
+            	buttons: [
+	            		new sap.m.RadioButton({
+	            			text: "Yes"	
+	            		}),
+	            		new sap.m.RadioButton({
+	            			text: "No"
+	            		}),
+            	],
+            	ariaLabelledBy : "rbg2Label"
+             });
+             
+             new sap.ui.layout.VerticalLayout({
+             	content: [
+             		oImage,
+             		oImage2,
+             		oLabel,
+             		oRadioButtonGroup,
+             		oLabel2,
+             		oRadioButtonGroup2
+             	]
+             }).placeAt("content");
+         });
+</script>
+
+</head>
+<body class='sapUiBody'>
+    <div id='content'></div>
+</body>
+</html>

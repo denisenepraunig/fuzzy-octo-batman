@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8">
+
+	<title>OData Model First Steps</title>
+
+	<script id="sap-ui-bootstrap"
+			src="../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-xx-bindingSyntax="complex">
+	</script>
+	<script>
+		
+		var sServiceURL = "/destinations/northwind/V3/Northwind/Northwind.svc/";
+		
+        // instantiate the model
+        var oModel = sap.ui.model.odata.v2.ODataModel(sServiceURL);
+        
+        oModel.setUseBatch(false);
+        
+        sap.ui.getCore().setModel(oModel);
+        
+        // display the product name
+        var oText = new sap.m.Text({
+        	text: "Product name: {/Product(1)/ProductName}"
+        });
+        
+        oText.addStyleClass("sapUiMediumMargin");
+        
+        var oPageMaster = new sap.m.Page("masterPage", {
+    		title : "Product 1 Info",
+    		content : [oText]
+    	});
+    	oPageMaster.bindElement("/Products");
+
+        var oApp = new sap.m.App();
+        oApp.addPage(oPageMaster);
+        oApp.placeAt("content");
+        
+	</script>
+</head>
+
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+
+</html>

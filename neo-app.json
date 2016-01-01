@@ -18,6 +18,14 @@
 		"entryPath": "/test-resources"
 	  },
 	  "description": "SAPUI5 Test Resources"
-	}
+	},
+	{
+      "path": "/destinations/northwind",
+      "target": {
+        "type": "destination",
+        "name": "northwind"
+      },
+      "description": "northwind"
+    }
   ]
 }

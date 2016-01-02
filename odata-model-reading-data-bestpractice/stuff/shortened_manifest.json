@@ -1,0 +1,59 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+    ...
+    "dataSources": {
+      "mainService": {
+        "uri": "/destinations/northwind/V3/Northwind/Northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  ...
+  "sap.ui5": {
+    "_version": "1.1.0",
+    "rootView": {
+      "viewName": "sapui5.demo.odata.readingdata.bestpractice.view.App",
+      "type": "XML"
+    },
+    ...
+    "models": {
+      "": {
+        "dataSource": "mainService",
+        "settings": {
+          "useBatch": false
+        }
+      },
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sapui5.demo.odata.readingdata.bestpractice.i18n.i18n"
+        }
+      }
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "sapui5.demo.odata.readingdata.bestpractice.view",
+        "controlId": "app",
+        "controlAggregation": "pages"
+      },
+      "routes": [{
+        "pattern": "",
+        "name": "master",
+        "target": "master"
+      }],
+      "targets": {
+        "master": {
+          "viewName": "Master",
+          "viewId": "master",
+          "viewLevel": 1
+        }
+      }
+    }
+  }
+}

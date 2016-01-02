@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8">
+
+	<title>OData Model Init Metadata</title>
+
+	<script id="sap-ui-bootstrap"
+			src="../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-xx-bindingSyntax="complex">
+	</script>
+	<script>
+		var sServiceURL = "/destinations/northwind/V3/Northwind/Northwind.svc/";
+		
+        // instantiate the model
+        var oModel = sap.ui.model.odata.v2.ODataModel(sServiceURL);
+        
+        // don't batch the requests for now
+        oModel.setUseBatch(false);
+        
+        function fnSuccess(oData, oResponse) {
+        	console.log("Data", oData);
+        	console.log("Response", oResponse);
+        }
+        
+        function fnError(oError) {
+        	console.log("Error", oError);
+        }
+        
+        // inline defintion of error & success handlers
+        oModel.read("/Products(3)", {
+		  success: function(oData, oResponse) {
+			    console.log("Data", oData);
+			    console.log("Response", oResponse);
+			  },
+			  error: function(oError) {
+			    console.log("Error", oError);
+			  }
+		});
+        
+        oModel.read("/Products(1)", {success: fnSuccess, error: fnError});
+        // this product does not exist
+        oModel.read("/Products(abc)", {success: fnSuccess, error: fnError});
+        
+        sap.ui.getCore().setModel(oModel);
+	</script>
+</head>
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+</html>

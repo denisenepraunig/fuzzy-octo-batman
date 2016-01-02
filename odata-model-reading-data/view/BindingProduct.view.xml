@@ -1,0 +1,14 @@
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page
+		title="Product 1 Info"
+		binding="{/Products(1)}">
+		<content>
+			<Text 
+				text="Product name: {ProductName}"
+				class="sapUiMediumMargin">
+			</Text>
+		</content>
+	</Page>
+</mvc:View>

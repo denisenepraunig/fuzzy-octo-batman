@@ -8,5 +8,4 @@ sap.ui.define([
 
 		formatter: formatter
 	});
-
 });

@@ -36,6 +36,9 @@
 								formatOptions: {showMeasure: false}
 							}"
 							numberUnit="EUR">
+						<attributes>
+							<ObjectAttribute binding="{Category}" text="{CategoryName}" />
+						</attributes>
 					</ObjectListItem>
 				</items>
 			</List>

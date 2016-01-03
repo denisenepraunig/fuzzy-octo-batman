@@ -13,9 +13,13 @@
 				width="auto"
 				items="{
 					path: '/Products',
-					sorter: {
-						path: 'ProductName',
-						descending: false
+					sorter: { 
+						path: 'Category/CategoryName',
+						descending: false,
+						group : true
+					},
+					parameters: {
+						'expand' : 'Category'
 					}
 				}">
 				<headerToolbar>

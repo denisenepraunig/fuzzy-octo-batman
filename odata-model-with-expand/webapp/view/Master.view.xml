@@ -16,6 +16,9 @@
 					sorter: {
 						path: 'ProductName',
 						descending: false
+					},
+					parameters: {
+						'expand' : 'Category'
 					}
 				}">
 				<headerToolbar>
@@ -38,9 +41,8 @@
 							numberUnit="EUR">
 						<attributes>
 							<ObjectAttribute 
-								binding="{Category}"
-								text="{CategoryName}" />
-						</attributes>						
+								text="{Category/CategoryName}" />
+						</attributes>
 					</ObjectListItem>
 				</items>
 			</List>

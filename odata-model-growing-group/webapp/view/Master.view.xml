@@ -1,0 +1,50 @@
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	controllerName="sapui5.demo.odata.filter.sort.controller.Master"
+	xmlns="sap.m"
+	>
+	<Page
+		title="Products Information">
+		<content>
+			
+			<List
+				id="productList"
+				class="sapUiResponsiveMargin"
+				width="auto"
+				items="{
+					path: '/Products',
+					sorter: { 
+						path: 'Category/CategoryName',
+						descending: false,
+						group : true
+					},
+					parameters: {
+						'expand' : 'Category'
+					}
+				}"
+				growing="true"
+				growingThreshold="10"
+				>
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Products in Stock" />
+						<ToolbarSpacer />
+						<SearchField width="50%" search="onFilterProducts" />
+					</Toolbar>
+				</headerToolbar>
+				<items>
+					<ObjectListItem
+							title="{UnitsInStock} x {ProductName}"
+							number="{
+								parts: [{path:'UnitPrice'},'EUR'],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: false}
+							}"
+							numberUnit="EUR">
+					</ObjectListItem>
+				</items>
+			</List>
+	
+		</content>
+	</Page>
+</mvc:View>

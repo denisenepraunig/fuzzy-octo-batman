@@ -2,10 +2,10 @@ sap.ui.define([
   "sap/ui/core/UIComponent",
   "sap/ui/model/resource/ResourceModel",
   "sap/ui/model/json/JSONModel",
+  "sapui5/demo/mvcapp/model/AppModel",
   "sap/ui/Device"
-	], function (UIComponent, ResourceModel, JSONModel, Device) {
+	], function (UIComponent, ResourceModel, JSONModel, AppModel, Device) {
   "use strict";
-
 
 	return UIComponent.extend("sapui5.demo.mvcapp.Component", {
 
@@ -17,7 +17,7 @@ sap.ui.define([
 			},
 
 			"config": {
-				"serviceUrl": "webapp/service/data.json",
+				"serviceUrl": "webapp/service",
 				"i18nBundle": "sapui5.demo.mvcapp.i18n.i18n"
 			},
 
@@ -40,7 +40,7 @@ sap.ui.define([
 						"target": "master"
 					},
 					{
-						"pattern": "detail/{ID}",
+						"pattern": "detail/{id}",
 						"name": "detail",
 						"target": "detail"
 					}
@@ -58,6 +58,11 @@ sap.ui.define([
 					"notFound": {
 						"viewName": "NotFound",
 						"viewId": "notFound"
+					},
+					"edit": {
+						"viewName": "Edit",
+						"viewId": "edit",
+						"viewLevel": 3
 					}
 				}
 			}
@@ -71,7 +76,6 @@ sap.ui.define([
 		 */
         init : function () {
           var mConfig = this.getMetadata().getConfig();
-          
           // call the base component's init function
           UIComponent.prototype.init.apply(this, arguments);
           
@@ -85,8 +89,11 @@ sap.ui.define([
           oModel.setDefaultBindingMode("OneWay");
           this.setModel(oModel, "device");
         
+			oModel = new AppModel({suppliers:{}});
+			oModel.read("/destinations/learnui5/suppliers", "/suppliers");
+			this.setModel(oModel);
           // create the views based on the url/hash
-          this.getRouter().initialize();
+			this.getRouter().initialize();
         },
 
 
@@ -97,10 +104,6 @@ sap.ui.define([
 		 * @returns {sap.ui.mvc.View} the root view of the component
 		 */
 		createContent : function() {
-			// set the app data model since the app controller needs it, we create this model very early
-            var oModel = new JSONModel(this.getMetadata().getConfig().serviceUrl);
-			this.setModel(oModel);
-			
 			// call the base component's createContent function
 			var oRootView = UIComponent.prototype.createContent.apply(this, arguments);
 			return oRootView;

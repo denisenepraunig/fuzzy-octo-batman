@@ -64,7 +64,7 @@ sap.ui.define([
 		 */
 		_showObject : function (oItem) {
 			this.getRouter().navTo("detail", {
-				ID: oItem.getBindingContext().getProperty("ID")
+				id: oItem.getBindingContext().getProperty("id")
 			});
 		}
 	});

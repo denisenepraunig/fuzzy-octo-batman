@@ -12,7 +12,7 @@
 				id="table"
 				width="auto"
 				class="sapUiResponsiveMargin"
-				items="{/Suppliers}"
+				items="{/suppliers}"
 				noDataText="{i18n>tableNoDataText}"
 				growing="true"
 				growingScrollToLoad="true">
@@ -35,7 +35,7 @@
 						press="onListPress">
 						<cells>
 							<ObjectIdentifier
-								text="{ID}"/>
+								text="{id}"/>
 							<ObjectIdentifier
 								text="{Name}"/>
 						</cells>

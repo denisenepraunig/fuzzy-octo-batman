@@ -1,0 +1,34 @@
+<mvc:View 
+	controllerName="sapui5.demo.odata.readingdata.bestpractice.controller.Master" 
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page 
+		binding="{/Products(1)}" 
+		id="productInfo" 
+		title="Product {ProductID} Info">
+		<content>
+			<Panel>
+				<Text 
+					text="Product Name: {ProductName}" />
+				<Input 
+					id="newProductName" 
+					maxLength="40" 
+					placeholder="New product name" />
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button 
+						icon="sap-icon://undo" 
+						press="onReset" 
+						text="Reset Changes"/>
+					<Button 
+						icon="sap-icon://accept" 
+						press="onChange" 
+						text="Change Product Name" 
+						type="Accept"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

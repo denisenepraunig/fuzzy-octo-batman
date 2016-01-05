@@ -19,7 +19,8 @@
 						group : true
 					},
 					parameters: {
-						'expand' : 'Category'
+						'expand' : 'Category',
+						'batchGroupId' : 'fuu'
 					}
 				}"
 				growing="true"

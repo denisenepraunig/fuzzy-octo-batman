@@ -8,7 +8,9 @@ sap.ui.define([
 		onInit: function() {
 			
 			this.getRouter().getRoute("master").attachPatternMatched(this.onAdd, this);
-			this.getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
+			
+			// this.getModel() of BaseController does really NOT work...
+			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
 		},
 		
 		_onMetadataLoaded: function() {

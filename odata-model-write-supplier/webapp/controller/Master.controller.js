@@ -8,8 +8,28 @@ sap.ui.define([
 		onInit: function() {
 			
 			this.getRouter().getRoute("master").attachPatternMatched(this.onAdd, this);
+			this.getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
 		},
 		
+		_onMetadataLoaded: function() {
+			
+			this._bMetadtaLoaded = true;
+			console.log("metadata loaded");
+			
+			if (this._bRoutingReady) {
+				this._createEntry();
+			}
+		},
+		
+		onAdd: function() {
+			
+			this._bRoutingReady = true;
+			console.log("routing ready");
+			
+			if (this._bMetadtaLoaded) {
+				this._createEntry();
+			}
+		},
 		
 		_createEntry: function() {
 			
@@ -22,25 +42,6 @@ sap.ui.define([
 					error : that._onCreateEntryError.bind(that) 
 				});
 				oView.setBindingContext(oContext);
-		},
-		
-		onAdd: function() {
-			
-			var oModel = this.getModel();
-			var that = this;
-			
-			var oMetaData = oModel.getMetadata();
-			
-			if (!oMetaData) {
-				
-				oModel.attachMetadataLoaded(function() {
-					that._createEntry();
-				});
-		 	}
-			else {
-				this._createEntry();
-			}
-
 		},
 		
 		

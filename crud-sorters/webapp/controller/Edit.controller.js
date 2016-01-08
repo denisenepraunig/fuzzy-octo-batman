@@ -48,12 +48,10 @@ sap.ui.define([
 		onSave: function(){
 			var sLocalPath,
 				sUrl = "/destinations/learnui5", 
-				oRouter = this.getRouter(),
 				sPath = this.getView().getElementBinding().getPath(),
 				oModel = this.getModel(),
 				oObject = oModel.getProperty(sPath),
-				oBundle = this.getResourceBundle(),
-				aExclude = ["products"];
+				that = this;
 			
 			//check if we're in edit or createMode
 			if(!this.getModel("viewModel").getProperty("/createMode")){
@@ -63,13 +61,13 @@ sap.ui.define([
 			} else {
 				sUrl = sUrl + "/suppliers";
 			}
-			oModel.saveEntry(oObject, sUrl, sLocalPath, aExclude);
+			oModel.saveEntry(oObject, sUrl, sLocalPath, ["products"]);
 			oModel.attachEventOnce("requestCompleted", function(){
-				oRouter.navTo("master");
+				that.getRouter().navTo("master");
 			}, this);
 			oModel.attachEventOnce("requestFailed", function(){
-				MessageToast.show(oBundle.getText("updateFailed"));
-			});
+				MessageToast.show(that.getResourceBundle().getText("updateFailed"));
+			}, this);
 		},
 		
 		/* =========================================================== */

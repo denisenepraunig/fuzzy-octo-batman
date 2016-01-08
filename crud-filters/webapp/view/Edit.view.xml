@@ -41,8 +41,7 @@
     <footer>
 			<Toolbar>
 				<ToolbarSpacer/>
-				<Button text="Save" press="onSave" />
-				<Button text="Delete" press="onDelete" />
+				<Button text="{i18n>Save}" press="onSave" />
 			</Toolbar>
 		</footer>
   </Page>

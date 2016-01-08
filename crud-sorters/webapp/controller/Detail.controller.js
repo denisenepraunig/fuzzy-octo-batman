@@ -1,8 +1,9 @@
 sap.ui.define([
 		"sapui5/demo/mvcapp/controller/BaseController",
 		"sapui5/demo/mvcapp/model/formatter",
-		"sapui5/demo/mvcapp/model/types"
-	], function (BaseController, formatter, types) {
+		"sapui5/demo/mvcapp/model/types",
+		"sap/m/MessageToast"
+	], function (BaseController, formatter, types, MessageToast) {
 	"use strict";
 	return BaseController.extend("sapui5.demo.mvcapp.controller.Detail", {
 
@@ -37,13 +38,37 @@ sap.ui.define([
 		onNavPress : function () {
 			this.myNavBack("master");
 		},
-		
+		/**
+		 * Navigates to the Edit view for this object
+		 * @function
+		 */
 		onEdit : function() {
 			var sObjectPath = this.getView().getElementBinding().getPath().substr(1);
 			this.getRouter().navTo("edit", {
 				id: sObjectPath
 			}, true);
 		},
+		/**
+		 * Invokes delete for supplier
+		 * @function
+		 */
+		 onDelete : function() {
+		 	var oModel = this.getModel(),
+		 		sLocalPath = this.getView().getElementBinding().getPath(),
+		 		oObject = oModel.getProperty(sLocalPath),
+		 		that = this;
+	 		
+		 	oModel.deleteEntry("/destinations/learnui5/suppliers/" + oObject.id, sLocalPath);
+
+		 	oModel.attachEventOnce("requestCompleted", function(){
+				that.getRouter().navTo("master");
+			}, this);
+
+			oModel.attachEventOnce("requestFailed", function(){
+				MessageToast.show(that.getResourceBundle().getText("updateFailed"));
+			});
+		 },
+		
 
 		/* =========================================================== */
 		/* internal methods                                            */
@@ -57,7 +82,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_onObjectMatched : function (oEvent) {
-		    this.sObjectId = oEvent.getParameter("data").id;
+		    this.sObjectId = oEvent.getParameter("arguments").id;
 			this._bindView();
 		},
 

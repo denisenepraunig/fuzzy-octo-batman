@@ -28,7 +28,7 @@
 	      path: 'Name',
 		  formatter: '.formatter.formatUpperCase'
 		}" 
-        number="{i18n>ID}: {ID}">
+        number="{i18n>ID}: {id}">
         <attributes>
           <ObjectAttribute 
             text="{Address/City}, {Address/Country}">
@@ -44,27 +44,19 @@
 			id="table"
 			width="auto"
 			class="sapUiResponsiveMargin"
-			items="{path: 'Products',
-			        sorter: {
-			            path: 'Name',
-			            descending: false
-			        }}"
+			items="{products}"
 			noDataText="No Data"
 			growing="true"
 			growingScrollToLoad="true">
 			<headerToolbar>
 				<Toolbar>
 					<Title id="tableHeader" text="{i18n>detailTableHeader}"/>
-					<CheckBox text="{i18n>detailFilterLabel}" select="onFilterProducts" />
 				</Toolbar>
 			</headerToolbar>
 			<columns>
 				<Column id="idColumn">
 				  <header>
-				     <Toolbar design="Transparent">
 					  <Text text="{i18n>tableIDColumnTitle}:" id="IDColumnTitle"/>
-				      <Button icon="sap-icon://sort" press="onSortID" />
-				    </Toolbar>
 				  </header>
 				</Column>
 				<Column id="nameColumn">
@@ -82,7 +74,7 @@
 				<ColumnListItem>
 					<cells>
 						<ObjectIdentifier
-			    			text="{ID}"/>
+			    			text="{id}"/>
 						<layout:VerticalLayout>
 						    <Text text="{Name}"/>
 						    <Text text="{Allergenics}" />
@@ -95,5 +87,12 @@
 			</items>
 		</Table>
     </content>
+    <footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="{i18n>btnEdit}" press="onEdit" />
+				<Button text="{i18n>btnDelete}" press="onDelete" />
+			</Toolbar>
+		</footer>
   </Page>
 </mvc:View>

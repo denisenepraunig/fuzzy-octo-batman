@@ -40,6 +40,7 @@ sap.ui.define([
                     }
 			});
 		},
+		
 		createEntry : function(sEntityName){
 			this.setProperty(sEntityName + "/createEntry",   
 				 {  
@@ -55,13 +56,38 @@ sap.ui.define([
 		            }
 				 });
 		},
-		_updateModel : function(sLocalPath, data){
-			if (sLocalPath){
+
+		deleteEntry : function(sUrl, sLocalPath){
+			var that = this;
+			jQuery.ajax({
+                type : "DELETE",
+                contentType : "application/json",
+                url : sUrl,
+                dataType : "json",
+                async: true, 
+                success : function() {
+                   //store the new/updated entry in the model
+                   that._updateModel(sLocalPath, null,  true);
+                   that.fireRequestCompleted();
+                },
+                error : function() {
+                    that.fireRequestFailed();
+                }
+			});
+		},
+
+		_updateModel : function(sLocalPath, data, bDelete){
+			var aData = this.getData();
+			if (sLocalPath && bDelete) {
+				//remove from model
+				aData.splice(sLocalPath.substr(1), 1);
+				this.setData(aData);
+				this.refresh();
+			} else if (sLocalPath) {
 				//store data for an existing object
-				this.setProperty(sLocalPath, data);	
+				this.setProperty(sLocalPath, data);
 			} else {
 				//store new object: get all Data as array from model, push new entry, set data to the model again
-				var aData = this.getData();
 				aData.push(data);
 				this.setData(aData);
 			}

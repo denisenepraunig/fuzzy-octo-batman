@@ -26,8 +26,8 @@
         "name": "northwind"
       },
       "description": "northwind"
-    }
-
+    },
+    {
 	  "path": "/destinations/learnui5",
 	  "target": {
 		"type": "destination",

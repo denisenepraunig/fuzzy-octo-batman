@@ -14,9 +14,8 @@ sap.ui.define([
 		 * @public
 		 */
 		onInit : function () {
-            // nothing to do at the moment
-            
-            
+			this._IDSorter = new sap.ui.model.Sorter("id", false);
+			this._NameSorter = new sap.ui.model.Sorter("Name", false);
 		},
 
 		/**
@@ -36,17 +35,24 @@ sap.ui.define([
 		 * @public
 		 */
 		
-		// TODO - we don't need FLP stuff...
 		onNavBack : function () {
 				// The history contains a previous entry
 				window.history.go(-1);
-			
 		},
 		
 		onAddSupplier : function(){
 			this.getRouter().navTo("edit");
 		},
+		
+		onSortID:  function(){
+		  this._IDSorter.bDescending = !this._IDSorter.bDescending;
+		  this.byId("table").getBinding("items").sort(this._IDSorter);
+		},
 
+		onSortName :  function(){
+		  this._NameSorter.bDescending = !this._NameSorter.bDescending;
+		  this.byId("table").getBinding("items").sort(this._NameSorter);
+		},
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */

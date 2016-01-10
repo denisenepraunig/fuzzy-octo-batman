@@ -77,9 +77,9 @@ sap.ui.define([
 		},
 
 		_updateModel : function(sLocalPath, data, bDelete){
+			var aData = this.getData();
 			if (sLocalPath && bDelete) {
 				//remove from model
-				var aData = this.getData();
 				aData.splice(sLocalPath.substr(1), 1);
 				this.setData(aData);
 				this.refresh();
@@ -87,8 +87,9 @@ sap.ui.define([
 				//store data for an existing object
 				this.setProperty(sLocalPath, data);
 			} else {
-				//store new object, second parameter true makes the model merge the new data and the old
-				this.setData([data], true);
+				//store new object: get all Data as array from model, push new entry, set data to the model again
+				aData.push(data);
+				this.setData(aData);
 			}
 		}
 	});

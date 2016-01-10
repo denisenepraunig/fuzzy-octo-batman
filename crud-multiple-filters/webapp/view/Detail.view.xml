@@ -1,0 +1,98 @@
+<mvc:View controllerName="sapui5.demo.mvcapp.controller.Detail" 
+  xmlns:mvc="sap.ui.core.mvc" 
+  xmlns:layout="sap.ui.layout"
+  xmlns="sap.m">
+  <Page id="page" 
+    navButtonPress="onNavPress" 
+    showNavButton="true" 
+    title="{i18n>detailTitle}">
+    <subHeader>
+    <Toolbar>
+        <ToolbarSpacer/>
+        <Button 
+          icon="sap-icon://slim-arrow-up" 
+          press="onPageUp" enabled="{viewModel>/buttonPrev}"
+          visible="{device>/system/phone}" />
+        <Button 
+          icon="sap-icon://slim-arrow-down" 
+          press="onPageDown"     
+          enabled="{viewModel>/buttonNext}"    
+          visible="{device>/system/phone}"/>
+    </Toolbar>
+
+    </subHeader>
+    <content>
+      <ObjectHeader 
+        id="objectHeader" 
+        title="{
+	      path: 'Name',
+		  formatter: '.formatter.formatUpperCase'
+		}" 
+        number="{i18n>ID}: {id}">
+        <attributes>
+          <ObjectAttribute 
+            text="{Address/City}, {Address/Country}">
+          </ObjectAttribute>
+          <ObjectAttribute 
+            text="{ 
+              path: 'Address/PhoneNumber',
+              type: '.types.PhoneNumber'
+           }" />
+        </attributes>
+      </ObjectHeader>
+    	<Table
+			id="table"
+			width="auto"
+			class="sapUiResponsiveMargin"
+			items="{products}"
+			noDataText="No Data"
+			growing="true"
+			growingScrollToLoad="true">
+			<headerToolbar>
+				<Toolbar>
+					<Title id="tableHeader" text="{i18n>detailTableHeader}"/>
+				</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column id="idColumn">
+				  <header>
+					  <Text text="{i18n>tableIDColumnTitle}:" id="IDColumnTitle"/>
+				  </header>
+				</Column>
+				<Column id="nameColumn">
+				  <header>
+			    	  <Text text="{i18n>tableNameColumnTitle}:" id="nameColumnTitle"/>
+			      </header>
+				</Column>
+				<Column id="priceColumn" hAlign="Right">
+				  <header>
+			    	  <Text text="{i18n>tablePriceColumnTitle}:" id="priceColumnTitle"/>
+			      </header>
+				</Column>
+			</columns>
+		    <items>
+				<ColumnListItem>
+					<cells>
+						<ObjectIdentifier
+			    			text="{id}"/>
+						<layout:VerticalLayout>
+						    <Text text="{Name}"/>
+						    <Text text="{Allergenics}" />
+						</layout:VerticalLayout>
+						<ObjectNumber
+                          number="{Price}"
+                          unit="USD" />	
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+    </content>
+    <footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="{i18n>btnEdit}" press="onEdit" />
+				<Button text="{i18n>btnDelete}" press="onDelete" />
+			</Toolbar>
+		</footer>
+  </Page>
+</mvc:View>

@@ -1,0 +1,48 @@
+<mvc:View controllerName="sapui5.demo.mvcapp.controller.Edit" 
+  xmlns:mvc="sap.ui.core.mvc" 
+  xmlns:layout="sap.ui.layout"
+  xmlns:form="sap.ui.layout.form"
+  xmlns="sap.m">
+  <Page id="page" 
+    navButtonPress="onNavPress" 
+    showNavButton="true" 
+    title="{i18n>detailTitle}">
+    <content>
+	<form:SimpleForm
+				id="form"
+				layout="ResponsiveGridLayout"
+				editable="true"
+				class="sapUiResponsiveMargin"
+				width="auto" 
+				labelSpanL="3" labelSpanM="3"
+				emptySpanL="4" emptySpanM="4"
+				columnsL="1" columnsM="1" >
+				<form:content>
+					<Label id="idLabel" text="{i18n>Id}" />
+					<Input id="idInput" value="{
+						path: 'id', 
+						type: 'sap.ui.model.type.Integer'
+					}"
+					visible="{viewModel>createMode}" />
+					<Label id="nameLabel" text="{i18n>Name}" />
+					<Input id="nameInput" value="{
+							path : 'Name',
+							type : 'sap.ui.model.type.String'
+						}" />
+					<Label id="cityLabel" text="{i18n>City}" />
+					<Input id="cityInput" value="{Address/City}" />
+					<Label id="countryLabel" text="{i18n>Country}" />
+					<Input id="countryInput" value="{Address/Country}" />
+					<Label id="phoneLabel" text="{i18n>PhoneNumber}" />
+					<Input id="phoneInput" value="{Address/PhoneNumber}" />
+				</form:content>
+			</form:SimpleForm>
+    </content>
+    <footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="{i18n>Save}" press="onSave" />
+			</Toolbar>
+		</footer>
+  </Page>
+</mvc:View>

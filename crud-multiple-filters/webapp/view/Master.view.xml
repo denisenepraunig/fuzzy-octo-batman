@@ -1,0 +1,70 @@
+<mvc:View
+    controllerName="sapui5.demo.mvcapp.controller.Master"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page
+		id="page"
+		navButtonPress="onNavBack"
+		showNavButton="true"
+		title="{i18n>masterViewTitle}">
+		<content>
+			<Table
+				id="table"
+				width="auto"
+				class="sapUiResponsiveMargin"
+				items="{
+					path: '/',
+					sorter: {
+						path: 'id'
+					}
+				}"
+				noDataText="{i18n>tableNoDataText}">
+				<headerToolbar>
+					<Toolbar>
+						<Title id="tableHeader" text="{i18n>SuppliersList}"/>
+						<CheckBox id="cbProducts" text="{i18n>filterSuppliers}" select="onFilterSuppliers" />
+						<CheckBox id="cbCountry" text="{i18n>filterSuppliersForCountry}" select="onFilterSuppliers" />
+						<ToolbarSpacer />
+						<Button icon="sap-icon://add" tooltip="{i18n>btnAddSupplier}" press="onAddSupplier"></Button>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column id="idColumn">
+						<header>
+							<Toolbar>
+								<Text text="{i18n>tableIDColumnTitle}" id="IDColumnTitle"/>
+								<Button icon="sap-icon://sort" press="onSortID" />
+							</Toolbar>
+						</header>
+					</Column>
+					<Column id="nameColumn">
+						<header>
+							<Toolbar>
+								<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
+								<Button icon="sap-icon://sort" press="onSortName" />
+							</Toolbar>
+						</header>
+					</Column>
+					<Column id="countryColumn">
+						<header>
+							<Text text="{i18n>tableCountryColumnTitle}" id="countryColumnTitle"/>
+						</header>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem
+						type="Navigation"
+						press="onListPress">
+						<cells>
+							<ObjectIdentifier
+								text="{id}"/>
+							<ObjectIdentifier
+								text="{Name}"/>
+							<Text text="{Address/Country}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>

@@ -28,12 +28,13 @@ sap.ui.define([
                     url : sUrl,
                     dataType : "json",
                     async: true, 
-                    success : function() {
+                    success : function(data, textStatus, jqXHR) {
                        //store the new/updated entry in the model
                        that._updateModel(sLocalPath, oFullData);
                        //call createEntry to reset the dummy property to empty values
                        that.createEntry("/");
                        that.fireRequestCompleted();
+                       var xhr = jqXHR;
                     },
                     error : function() {
                         that.fireRequestFailed();

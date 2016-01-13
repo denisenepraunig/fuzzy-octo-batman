@@ -1,0 +1,37 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+  xmlns="sap.m">
+  <Page 
+    title="Product {ProductID} Info" 
+      binding="{/Products(1)}">
+    <content>
+
+      <ObjectHeader 
+        title="{ProductName}" 
+        number="{
+          parts: [{path:'UnitPrice'},'EUR'],
+		  type: 'sap.ui.model.type.Currency',
+		  formatOptions: {showMeasure: false}
+		}" 
+        numberUnit="EUR">
+        <attributes>
+          <ObjectAttribute 
+            text="Units in stock: {UnitsInStock}" />
+          <ObjectAttribute 
+            text="Units on order: {UnitsOnOrder}" />
+          <ObjectAttribute 
+            text="Reorder Level: {ReorderLevel}" />
+          <ObjectAttribute 
+            text="Quantity per Unit: {QuantityPerUnit}" />
+        </attributes>
+
+        <statuses>
+          <ObjectStatus text="ID: {ProductID}" />
+          <ObjectStatus 
+            text="{= ${Discontinued} ? 'Discontinued' : 'Available' }" 
+            state="{= ${Discontinued} ? 'Error' : 'Success' }" />
+        </statuses>
+      </ObjectHeader>
+
+    </content>
+  </Page>
+</mvc:View>

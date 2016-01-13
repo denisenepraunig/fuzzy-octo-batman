@@ -17,7 +17,7 @@ sap.ui.define([
 			this._bindView("/Suppliers(1)");
 		},
 
-		_onBatchRequestCompleted: function(oEvent) {
+		_onRequestCompleted: function(oEvent) {
 
 			var oParams = oEvent.getParameters();
 			if(!oParams.success) {
@@ -56,7 +56,7 @@ sap.ui.define([
 
 			var	oModel = this.getModel();
 			
-			oModel.attachEventOnce("requestCompleted", this._onBatchRequestCompleted.bind(this));
+			oModel.attachEventOnce("requestCompleted", this._onRequestCompleted.bind(this));
 			// submit changes to server
 			oModel.submitChanges();
 		},

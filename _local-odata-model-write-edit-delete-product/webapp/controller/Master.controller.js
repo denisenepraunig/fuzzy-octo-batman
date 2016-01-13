@@ -11,7 +11,8 @@ sap.ui.define([
 		onInit: function() {
 
 			var oModel = new sap.ui.model.json.JSONModel({
-				createMode : true
+				createMode : true,
+				discontinued: false
 			});
 			this.getView().setModel(oModel, "viewModel");
 
@@ -56,7 +57,7 @@ sap.ui.define([
 			var oModel = this.getModel();
 
 			var oView = this.getView();
-			var oContext = oModel.createEntry("Suppliers", {
+			var oContext = oModel.createEntry("Products", {
 				success: this._onCreateEntrySuccess.bind(this),
 				error: this._onCreateEntryError.bind(this )
 			});
@@ -144,12 +145,12 @@ sap.ui.define([
 		_onDeleteEntryError : function (oError) {
 
 			MessageBox.error(
-				"Error deleting entry: " + oError.statusCode + " (" + oError.statusText + ")",
-				{
-					details: oError.responseText
-				}
-			);
-			console.log("onDeleteEntryError", oError);
+					"Error deleting entry: " + oError.statusCode + " (" + oError.statusText + ")",
+					{
+						details: oError.responseText
+					}
+				);
+				console.log("onDeleteEntryError", oError);
 		},
 
 		onDelete: function() {

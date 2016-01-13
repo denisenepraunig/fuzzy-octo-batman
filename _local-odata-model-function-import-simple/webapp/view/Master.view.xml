@@ -1,0 +1,33 @@
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	controllerName="sapui5.demo.odata.filter.sort.controller.Master"
+	xmlns="sap.m">
+	<Page
+		title="Products Function Import">
+		<content>
+			
+			<List
+				class="sapUiResponsiveMargin"
+				width="auto"
+				items="{viewModel>/Products}">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Products: GetProductByRating" />
+						<ToolbarSpacer />
+						<SearchField 
+							width="50%" 
+							placeholder="Rating"
+							search="onGetProductsByRating" />
+					</Toolbar>
+				</headerToolbar>
+				<items>
+					<ObjectListItem
+						title="{viewModel>Name}"
+						number="{viewModel>Rating}" >
+					</ObjectListItem>
+				</items>
+			</List>
+	
+		</content>
+	</Page>
+</mvc:View>

@@ -75,7 +75,7 @@ sap.ui.define([
 			} else {
 				//unset the filter
 				oTableBinding.aFilters = null;
-				oTable.getModel().refresh(true);
+				oTable.getModel().refresh();
 			}
 		},
 		/* =========================================================== */

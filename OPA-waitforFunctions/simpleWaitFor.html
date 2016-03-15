@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+
+  <title>First Simple OPA Test</title>
+
+  <script id="sap-ui-bootstrap"
+    src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+    data-sap-ui-libs="sap.m"
+    data-sap-ui-preload="async"
+    dta-sap-ui-theme="sap_bluecrystal"
+    data-sap-ui-compatVersion="edge"
+    data-sap-ui-onInit="init()">
+  </script>
+  <script>
+  var init = function() {
+    new sap.m.Button("button", {text : "Click Me"}).placeAt("content");
+    new sap.m.Button("button2", {text : "i am different", enabled: false}).placeAt("content");
+    sap.ui.require([
+      "sap/ui/test/Opa5",
+      "sap/ui/test/matchers/PropertyStrictEquals",
+      "sap/ui/test/actions/Press"
+    ], function(Opa5, PropertyStrictEquals, Press) {
+      var opa = new Opa5();
+      opa.waitFor({
+        controlType : "sap.m.Button",
+        matchers: new sap.ui.test.matchers.PropertyStrictEquals({
+          name: "text",
+          value: "Click Me"
+        }),
+        success : function(oControl){
+          console.log(oControl);
+        }
+      });
+      opa.waitFor({
+        id: "button",
+        success: function(oControl) {
+          console.log(oControl);
+        }
+      });
+      opa.waitFor({
+        id: "button1",
+        error: function() {
+          console.log("button not found!");
+        },
+        errorMessage: "Some error message to be displayed"
+      });
+      opa.waitFor({
+        id: "button",
+        actions: new sap.ui.test.actions.Press()
+      });
+      opa.emptyQueue();
+    })
+  }
+  </script>
+</head>
+
+<body class="sapUiBody" role="application">
+  <div id="content"></div>
+</body>
+
+</html>

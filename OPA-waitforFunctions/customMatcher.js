@@ -13,6 +13,7 @@ sap.ui.define(
         },
 
         isMatching: function(oControl) {
+          // your specific matcher logic goes in here
           return true||false
         }
     })

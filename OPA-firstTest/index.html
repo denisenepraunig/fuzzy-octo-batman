@@ -5,11 +5,7 @@
   <meta charset="UTF-8">
 
   <title>First Simple OPA Test</title>
-  <style>
-  #__container0-uiarea {
-    height : 300px
-  }
-  </style>
+
   <script id="sap-ui-bootstrap"
     src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
     data-sap-ui-libs="sap.m"
@@ -62,29 +58,35 @@
           };
 
           sap.ui.test.Opa5.extendConfig({
-              actions : new Opa5({iPressAButton : pressAButtonById}),
-              assertions : new Opa5({iSeeTheDialog : checkDialogTitle, theButtonShouldBeDisabled : buttonDisabledCheck})
+              actions : new Opa5(
+                {
+                  iPressAButtonById : pressAButtonById
+                }),
+              assertions : new Opa5(
+                {
+                  iSeeTheDialogWithTheRightTitle : checkDialogTitle,
+                  theButtonShouldBeDisabled : buttonDisabledCheck
+                })
           });
 
-  				QUnit.module("iStartMyUIComponent");
+  				QUnit.module("First Test with Opa-QUnit adapter and Component Launcher");
 
   				opaTest("Should open the dialog", function (Given, When, Then) {
 
-  					// Arrangements
   					Given.iStartMyUIComponent({
   						componentConfig: {
   							name: "my.simple.component"
   						}
   					});
 
-            When.iPressAButton("buttonOpenDialog");
+            When.iPressAButtonById("buttonOpenDialog");
   							// Assertions
-            Then.iSeeTheDialog();
+            Then.iSeeTheDialogWithTheRightTitle();
   					});
 
             opaTest("Should close the dialog and disable the button", function(Given, When, Then) {
 
-              When.iPressAButton("buttonCloseDialog");
+              When.iPressAButtonById("buttonCloseDialog");
 
               Then.theButtonShouldBeDisabled().and.iTeardownMyUIComponent();
             });

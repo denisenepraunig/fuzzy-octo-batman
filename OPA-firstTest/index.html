@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+
+  <title>First Simple OPA Test</title>
+  <style>
+  #__container0-uiarea {
+    height : 300px
+  }
+  </style>
+  <script id="sap-ui-bootstrap"
+    src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+    data-sap-ui-libs="sap.m"
+    dta-sap-ui-theme="sap_bluecrystal"
+    data-sap-ui-compatVersion="edge"
+    data-sap-ui-resourceroots='{"my.simple.component" : "./"}'>
+  </script>
+  <script>
+
+  			jQuery.sap.require("sap.ui.qunit.qunit-css");
+  			jQuery.sap.require("sap.ui.thirdparty.qunit");
+  			jQuery.sap.require("sap.ui.qunit.qunit-junit");
+  			jQuery.sap.require("sap.ui.qunit.qunit-coverage");
+  			jQuery.sap.require("sap.ui.qunit.QUnitUtils");
+
+  			QUnit.config.autostart = false;
+
+  			sap.ui.require([
+  				'sap/ui/test/opaQunit',
+  				'sap/ui/test/Opa5',
+          'sap/ui/test/actions/Press',
+          'sap/ui/test/matchers/PropertyStrictEquals'
+  			], function (opaTest, Opa5, Press, PropertyStrictEquals) {
+
+          var pressAButtonById = function(sId) {
+            return this.waitFor({
+              id: sId,
+              actions : new Press()
+            })
+          };
+
+          var checkDialogTitle = function() {
+            return this.waitFor({
+              controlType : "sap.m.Dialog",
+              matchers : new PropertyStrictEquals({name : 'title', value: 'hello'}),
+              success : function() {
+                  ok(true, "Open Dialog has the right title");
+              }
+            })
+          };
+
+          var buttonDisabledCheck = function() {
+            return this.waitFor({
+              controlType : "sap.m.Button",
+              matchers : new PropertyStrictEquals({name : "enabled", value : false}),
+              success : function(){
+                ok(true, "button is disabled");
+              }
+            })
+          };
+
+          sap.ui.test.Opa5.extendConfig({
+              actions : new Opa5({iPressAButton : pressAButtonById}),
+              assertions : new Opa5({iSeeTheDialog : checkDialogTitle, theButtonShouldBeDisabled : buttonDisabledCheck})
+          });
+
+  				QUnit.module("iStartMyUIComponent");
+
+  				opaTest("Should open the dialog", function (Given, When, Then) {
+
+  					// Arrangements
+  					Given.iStartMyUIComponent({
+  						componentConfig: {
+  							name: "my.simple.component"
+  						}
+  					});
+
+            When.iPressAButton("buttonOpenDialog");
+  							// Assertions
+            Then.iSeeTheDialog();
+  					});
+
+            opaTest("Should close the dialog and disable the button", function(Given, When, Then) {
+
+              When.iPressAButton("buttonCloseDialog");
+
+              Then.theButtonShouldBeDisabled().and.iTeardownMyUIComponent();
+            });
+
+  				QUnit.start();
+
+  			});
+
+  		</script></head>
+
+<body class="sapUiBody" role="application">
+  <div id="content"></div>
+  <div id="qunit-wrapper">
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+</body>
+
+</html>

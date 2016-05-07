@@ -61,6 +61,23 @@
 				<EntitySet Name="WeightUnits" EntityType="com.sap.smart.controls.WeightUnit" />
 			</EntityContainer>
 
+			<Annotations Target="com.sap.smart.controls.Product"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+					<Collection>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="ProductId" />
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="Name" />
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="CategoryName" />
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+
 			<Annotations Target="com.sap.smart.controls.Product/CurrencyCode"
 				xmlns="http://docs.oasis-open.org/odata/ns/edm">
 				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">

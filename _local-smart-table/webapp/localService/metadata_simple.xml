@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+	xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+	xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="com.sap.smart.controls" 
+			sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="Product">
+				<Key>
+					<PropertyRef Name="ProductId" />
+				</Key>
+				<Property Name="ProductId" Type="Edm.String" Nullable="false"
+					sap:updatable="false" MaxLength="20" sap:label="Product ID" />
+				<Property Name="Name" Type="Edm.String" Nullable="false"
+					MaxLength="30" sap:label="Name" />
+				<Property Name="CategoryName" Type="Edm.String" sap:label="Category Description"
+					sap:updatable="true" />
+				<Property Name="Description" Type="Edm.String" MaxLength="256"
+					sap:label="Description" sap:updatable="true" />
+				<Property Name="Price" Type="Edm.String" Nullable="false"
+					sap:unit="CurrencyCode" MaxLength="3" sap:label="Price"
+					sap:updatable="true" />
+				<Property Name="CurrencyCode" Type="Edm.String" Nullable="true"
+					MaxLength="3" sap:label="Currency" sap:semantics="currency-code"
+					sap:updatable="true" />
+				<Property Name="SupplierName" Type="Edm.String" Nullable="false"
+					sap:label="Supplier" sap:updatable="true" />
+
+				<!-- Denise -->
+				<Property Name="QuantityPerUnit" Type="Edm.String" MaxLength="20" sap:unit="QuantityUnit" sap:label="Quantity per Unit"/>
+				<Property Name="QuantityUnit" Type="Edm.String" MaxLength="3" sap:label="Unit of Measure" sap:semantics="unit-of-measure"/>
+				
+				<Property Name="Weight" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="WeightUnit" sap:label="Weight"/>
+				<Property Name="WeightUnit" Type="Edm.String" MaxLength="3" sap:label="Unit of Measure" sap:semantics="unit-of-measure"/>
+			</EntityType>
+
+			<EntityType Name="Currency">
+				<Key>
+					<PropertyRef Name="CURR" />
+				</Key>
+				<Property Name="CURR" Type="Edm.String" MaxLength="4"
+					sap:display-format="UpperCase" sap:text="DESCR" sap:label="Currency Code"
+					sap:filterable="false" />
+				<Property Name="DESCR" Type="Edm.String" MaxLength="25"
+					sap:label="Description" />
+			</EntityType>
+
+			<EntityType Name="WeightUnit" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Unit"/>
+				</Key>
+				<Property Name="Unit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="ISO code" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="Shorttext" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="30" sap:creatable="false" sap:updatable="false"/>
+			</EntityType>
+
+			<EntityContainer m:IsDefaultEntityContainer="true" sap:supported-formats="atom json">
+				<EntitySet Name="Products" EntityType="com.sap.smart.controls.Product" />
+				<EntitySet Name="Currency" EntityType="com.sap.smart.controls.Currency" />
+				<EntitySet Name="WeightUnits" EntityType="com.sap.smart.controls.WeightUnit" />
+			</EntityContainer>
+
+			<Annotations Target="com.sap.smart.controls.Product"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+					<Collection>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="ProductId" />
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="Name" />
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="CategoryName" />
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+
+			<Annotations Target="com.sap.smart.controls.Product/CurrencyCode"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record>
+						<PropertyValue Property="Label" String="Currency" />
+						<PropertyValue Property="CollectionPath" String="Currency" />
+						<PropertyValue Property="SearchSupported" Bool="true" />
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty"
+										PropertyPath="CurrencyCode" />
+									<PropertyValue Property="ValueListProperty"
+										String="CURR" />
+								</Record>
+								<Record
+									Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty"
+										String="DESCR" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+
+			<Annotations Target="com.sap.smart.controls.Product/WeightUnit"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record>
+						<PropertyValue Property="Label" String="WeightUnits"/>
+						<PropertyValue Property="CollectionPath" String="WeightUnits"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="WeightUnit"/>
+									<PropertyValue Property="ValueListProperty" String="Unit"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="Text"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>	

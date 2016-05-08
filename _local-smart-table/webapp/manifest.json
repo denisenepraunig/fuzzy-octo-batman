@@ -38,7 +38,7 @@
 	   "": {
 		"dataSource": "mainService",
 		"settings" : {
-					"defaultBindingMode": "TwoWay"
+			"defaultBindingMode": "TwoWay"
 		}
 	  }
 	},

@@ -1,0 +1,64 @@
+<mvc:View 
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	controllerName="sap.ui.demo.smartControls.controller.Master"
+	xmlns:smartForm="sap.ui.comp.smartform" 
+	xmlns:smartField="sap.ui.comp.smartfield">
+	<Page 
+		id="page" 
+		title="{Name}" 
+		enableScrolling="false">
+		<content>
+			<smartForm:SmartForm 
+				id="smartForm"
+				editTogglable="true" 
+				title="Details"
+				flexEnabled="false">
+				<smartForm:Group label="Product">
+
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{ProductId}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{Name}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{SupplierName}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{Category}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{Price}" />
+					</smartForm:GroupElement>
+
+				</smartForm:Group>
+
+				<smartForm:Group label="Dimensions">
+					
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{Weight}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{DimensionHeight}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{DimensionWidth}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{DimensionDepth}" />
+					</smartForm:GroupElement>
+
+				</smartForm:Group>
+
+			</smartForm:SmartForm>
+		</content>
+	</Page>
+</mvc:View>

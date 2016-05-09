@@ -1,0 +1,32 @@
+[{
+	"CurrencyId": "EUR",
+	"Description": "European Euro"
+},
+{
+	"CurrencyId": "USD",
+	"Description": "United States Dollar"
+},
+{
+	"CurrencyId": "GBP",
+	"Description": "British Pound"
+},
+{
+	"CurrencyId": "DKK",
+	"Description": "Danish Krone"
+},
+{
+	"CurrencyId": "INR",
+	"Description": "Indian Rupee"
+},
+{
+	"CurrencyId": "NOK",
+	"Description": "Norwegian Krone"
+},
+{
+	"CurrencyId": "SEK",
+	"Description": "Swedish Krona"
+},
+{
+	"CurrencyId": "CHF",
+	"Description": "Swiss Franc"
+}]

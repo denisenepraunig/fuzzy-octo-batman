@@ -1,0 +1,25 @@
+[{
+	"Unit": "GRM",
+	"Shorttext": "g",
+	"Text": "Gram"
+}, {
+	"Unit": "KGM",
+	"Shorttext": "kg",
+	"Text": "Kilogram"
+}, {
+	"Unit": "MGM",
+	"Shorttext": "mg",
+	"Text": "Milligram"
+}, {
+	"Unit": "ONZ",
+	"Shorttext": "Ounce",
+	"Text": "Ounce"
+}, {
+	"Unit": "TNE",
+	"Shorttext": "t",
+	"Text": "Tonne"
+}, {
+	"Unit": "STN",
+	"Shorttext": "US ton",
+	"Text": "US ton"
+}]

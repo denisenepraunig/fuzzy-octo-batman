@@ -1,0 +1,37 @@
+[{
+	"Unit": "CMT",
+	"Shorttext": "cm",
+	"Text": "Centimeter"
+}, {
+	"Unit": "DMT",
+	"Shorttext": "dm",
+	"Text": "Decimeter"
+}, {
+	"Unit": "INH",
+	"Shorttext": "Inches",
+	"Text": "Inch"
+}, {
+	"Unit": "KMT",
+	"Shorttext": "km",
+	"Text": "Kilometer"
+}, {
+	"Unit": "MTR",
+	"Shorttext": "m",
+	"Text": "Meter"
+}, {
+	"Unit": "SMI",
+	"Shorttext": "Mile",
+	"Text": "Mile"
+}, {
+	"Unit": "4H",
+	"Shorttext": "µm",
+	"Text": "Micrometer"
+}, {
+	"Unit": "MMT",
+	"Shorttext": "mm",
+	"Text": "Millimeter"
+}, {
+	"Unit": "C45",
+	"Shorttext": "nm",
+	"Text": "Nanometer"
+}]

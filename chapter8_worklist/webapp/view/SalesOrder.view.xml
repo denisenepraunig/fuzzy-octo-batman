@@ -1,0 +1,37 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns="sap.m" controllerName="my.app.controller.SalesOrder">
+	<semantic:FullscreenPage xmlns:sap.m.semantic="sap.m.semantic" title="Sales Order Details" id="__page0" showNavButton="true" navButtonPress="onNavBack">
+		<semantic:content>
+			
+			<Panel>
+				<ObjectHeader title="{SalesOrderID}" number="{GrossAmount}" numberUnit="{CurrencyCode}" intro="{CustomerName}" introActive="true"
+					titleActive="false" iconActive="false" backgroundDesign="Transparent"/>
+			</Panel>
+			<!--
+			<Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList" items="{ToLineItems}"
+			noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinished" width="auto">
+				<headerToolbar>
+					<Toolbar id="lineItemsToolbar">
+						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Product ID"/>
+					</Column>
+					<Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
+						<Text text="Net Amount"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier text="{ProductID}"/>
+							<ObjectNumber number="{GrossAmount}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			-->
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

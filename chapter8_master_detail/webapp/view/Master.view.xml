@@ -1,0 +1,30 @@
+<mvc:View controllerName="my.app.controller.Master" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic">
+    <semantic:MasterPage title="MasterPage">
+        <semantic:subHeader>
+			<Bar id="headerBar">
+				<contentMiddle>
+					<SearchField id="searchField" search="onSearch" showRefreshButton="{= !${device>/support/touch} }"
+						width="100%"/>
+				</contentMiddle>
+			</Bar>
+		</semantic:subHeader>
+        <semantic:content> 
+        <List
+            id="list"
+            selectionChange="onItemPressed"
+            updateFinished="onUpdateFinished"
+            mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+            items="{
+                path: '/BusinessPartnerSet'
+                }">
+            <items>
+                <ObjectListItem
+                	type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
+                    
+                    title="{CompanyName}"
+                    intro="{WebAddress}"/>
+            </items>
+         </List>
+         </semantic:content>
+    </semantic:MasterPage>
+</mvc:View>

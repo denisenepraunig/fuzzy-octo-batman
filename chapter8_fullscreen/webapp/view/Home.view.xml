@@ -1,0 +1,5 @@
+<mvc:View controllerName="my.app.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic">
+	<semantic:FullscreenPage title="Fullscreen">
+	    <!-- Enough space for your content here -->
+	</semantic:FullscreenPage>
+</mvc:View>

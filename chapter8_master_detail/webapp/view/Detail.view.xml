@@ -1,0 +1,7 @@
+<mvc:View controllerName="my.app.controller.Detail" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic">
+    <semantic:DetailPage title="DetailPage">
+        <ObjectHeader
+            title="{CompanyName}"  
+        />
+    </semantic:DetailPage>
+</mvc:View>

@@ -56,12 +56,12 @@ sap.ui.define([
 			//check if we're in edit or createMode
 			if(!this.getModel("viewModel").getProperty("/createMode")){
 				//we're not, so we update an existing entry
-				sUrl = sUrl + "/suppliers/" + oObject.id;
+				sUrl = "/Suppliers/" + oObject.id;
 				sLocalPath = sPath;
 			} else {
-				sUrl = sUrl + "/suppliers";
+				sUrl = "/Suppliers";
 			}
-			oModel.saveEntry(oObject, sUrl, sLocalPath, ["products"]);
+			oModel.saveEntry(oObject, sUrl, sLocalPath);
 			oModel.attachEventOnce("requestCompleted", function(){
 				that.getRouter().navTo("master");
 			}, this);
@@ -83,6 +83,9 @@ sap.ui.define([
 		 */
 		_onRouteMatched : function (oEvent) {
 			var oEventData = oEvent.getParameter("arguments");
+			if (oEvent.getParameter("name")==="master"){
+			    return;
+			}
 			if(oEventData && oEventData.id){
 				this.sObjectPath = "/" + oEventData.id;
 			} else {
@@ -92,7 +95,7 @@ sap.ui.define([
 			}
 			this._bindView();
 		},
-
+		
 		/**
 		 * Binds the view to the object path.
 		 *

@@ -1,5 +1,5 @@
 {  
-    "suppliers":[  
+    "Suppliers":[  
         {  
             "id":0,
             "Name":"Exotic Liquids",
@@ -18,7 +18,7 @@
                     47.6316604614258
                 ]
             },
-            "products":[  
+            "Products":[  
                 {  
                     "id":1,
                     "Name":"Milk",
@@ -99,7 +99,7 @@
                     47.6472206115723
                 ]
             },
-            "products":[  
+            "Products":[  
                 {  
                     "id":7,
                     "Name":"Bread",

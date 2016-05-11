@@ -1,6 +1,5 @@
 sap.ui.define([
 		"sapui5/demo/mvcapp/controller/BaseController",
-		"sapui5/demo/mvcapp/model/formatter",
 		"sapui5/demo/mvcapp/model/types",
 		"sap/ui/model/json/JSONModel",
 		"sap/m/MessageToast"
@@ -47,29 +46,29 @@ sap.ui.define([
 		 */
 		onSave: function(){
 			var sLocalPath,
-				sUrl = "/destinations/learnui5", 
+				sUrl = "", 
 				oRouter = this.getRouter(),
 				sPath = this.getView().getElementBinding().getPath(),
 				oModel = this.getModel(),
 				oObject = oModel.getProperty(sPath),
-				oBundle = this.getResourceBundle(),
-				aExclude = ["products"];
+				oBundle = this.getResourceBundle();
 			
 			//check if we're in edit or createMode
 			if(!this.getModel("viewModel").getProperty("/createMode")){
 				//we're not, so we update an existing entry
-				sUrl = sUrl + "/suppliers/" + oObject.id;
+				sUrl = "/Suppliers/" + oObject.id;
 				sLocalPath = sPath;
 			} else {
-				sUrl = sUrl + "/suppliers";
+				sUrl = "/Suppliers";
 			}
-			oModel.saveEntry(oObject, sUrl, sLocalPath, aExclude);
 			oModel.attachEventOnce("requestCompleted", function(){
 				oRouter.navTo("master");
+				this.getModel("viewModel").setProperty("/createMode", false);
 			}, this);
 			oModel.attachEventOnce("requestFailed", function(){
 				MessageToast.show(oBundle.getText("updateFailed"));
 			});
+			oModel.saveEntry(oObject, sUrl, sLocalPath);
 		},
 		
 		/* =========================================================== */
@@ -85,6 +84,9 @@ sap.ui.define([
 		 */
 		_onRouteMatched : function (oEvent) {
 			var oEventData = oEvent.getParameter("arguments");
+			if (oEvent.getParameter("name")==="master"){
+			    return;
+			}
 			if(oEventData && oEventData.id){
 				this.sObjectPath = "/" + oEventData.id;
 			} else {

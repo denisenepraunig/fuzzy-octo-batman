@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>MVC App</title>
+    <script src="service/FakeRest.min.js"></script>
+	<script id="sap-ui-bootstrap"
+			src="../../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m, sap.ui.layout"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-preload="async"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{"sapui5.demo.mvcapp": "./"}'>
+	</script>
+	<script>
+    	sap.ui.getCore().attachInit(function () {
+			sap.ui.require([
+				"sap/m/Shell",
+				"sap/ui/core/ComponentContainer",
+				"sapui5/demo/mvcapp/Component",
+				"sap/ui/thirdparty/sinon"
+			], function (Shell, ComponentContainer, Component) {
+
+                jQuery.ajax({
+                    url : "service/suppliers.json",
+                    success : function(oData) {
+                        initAppWithFakeRest(oData);
+                    },
+                    error : function() {
+                        alert("Could not start server");
+                    }
+		        });
+
+                var initAppWithFakeRest = function(oData){
+                    // initialize fake REST server
+                    var restServer = new FakeRest.Server();
+                    restServer.init(oData);
+                    var server = sinon.fakeServer.create();
+                    server.xhr.useFilters = true;
+                    server.autoRespond = true;
+                    server.autoRespondAfter = 0; 
+                    
+                    server.xhr.addFilter(function(method, url) {
+                      //whenever the this returns true the request will not faked
+                      return !url.match(/Suppliers/);
+                    });
+      
+                    // use sinon.js to monkey-patch XmlHttpRequest
+                     server.respondWith(restServer.getHandler());
+    				// initialize the UI component
+    				new Shell({
+    					app: new ComponentContainer({
+    						height : "100%",
+    						component : new Component({
+    							id: "mvcAppComponent"
+    						})
+    					})
+    				}).placeAt("content");
+                }
+			});
+		});
+	</script>
+</head>
+
+<body class="sapUiBody" id="content"></body>
+
+</html>

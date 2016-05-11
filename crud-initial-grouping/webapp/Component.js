@@ -10,67 +10,7 @@ sap.ui.define([
 	return UIComponent.extend("sapui5.demo.mvcapp.Component", {
 
 		metadata : {
-			"rootView": "sapui5.demo.mvcapp.view.App",
-			"dependencies": {
-				"minUI5Version": "1.28.0",
-				"libs": [ "sap.ui.core", "sap.m" ]
-			},
-
-			"config": {
-				"serviceUrl": "/destinations/learnui5",
-				"i18nBundle": "sapui5.demo.mvcapp.i18n.i18n"
-			},
-
-			"routing": {
-				"config": {
-					"routerClass": "sap.m.routing.Router",
-					"viewType": "XML",
-					"viewPath": "sapui5.demo.mvcapp.view",
-					"controlId": "app",
-					"controlAggregation": "pages",
-					"bypassed": {
-						"target": "notFound"
-					}
-				},
-
-				"routes": [
-					{
-						"pattern": "",
-						"name": "master",
-						"target": "master"
-					},
-					{
-						"pattern": "detail/{id}",
-						"name": "detail",
-						"target": "detail"
-					},
-					{
-						"pattern": "edit/:id:",
-						"name" : "edit",
-						"target" : "edit"
-					}
-				],
-
-				"targets": {
-					"master": {
-						"viewName": "Master",
-						"viewLevel": 1
-					},
-					"detail": {
-						"viewName": "Detail",
-						"viewLevel": 2
-					},
-					"notFound": {
-						"viewName": "NotFound",
-						"viewId": "notFound"
-					},
-					"edit": {
-						"viewName": "Edit",
-						"viewId": "edit",
-						"viewLevel": 3
-					}
-				}
-			}
+			manifest: "json"
 		},
 
 		/**
@@ -80,23 +20,29 @@ sap.ui.define([
 		 * @override
 		 */
         init : function () {
-          var mConfig = this.getMetadata().getConfig();
-          // call the base component's init function
-          UIComponent.prototype.init.apply(this, arguments);
+            // call the base component's init function
+            UIComponent.prototype.init.apply(this, arguments);
+            // create the device model here
+            var oModel = new JSONModel(Device);
+            oModel.setDefaultBindingMode("OneWay");
+            this.setModel(oModel, "device");
+            var oAppModel = new AppModel("/Suppliers");
           
-          // set the internationalization model
-          this.setModel(new ResourceModel({
-            bundleName : mConfig.i18nBundle
-          }), "i18n");
-        
-          // create the device model here
-          var oModel = new JSONModel(Device);
-          oModel.setDefaultBindingMode("OneWay");
-          this.setModel(oModel, "device");
-        
-			oModel = new AppModel("/destinations/learnui5/suppliers?_embed=products");
-			this.setModel(oModel);
-          // create the views based on the url/hash
+            jQuery.ajax({
+                type : "GET",
+                contentType : "application/json",
+                url : "/Suppliers",
+                dataType : "json",
+                success : function(oData) {
+                    oAppModel.setData(oData);
+                },
+                error : function() {
+                    jQuery.sap.log.debug("something went wrong while retrieving the data");
+                }
+			});
+			
+            this.setModel(oAppModel);
+            // create the views based on the url/hash
 			this.getRouter().initialize();
         },
 

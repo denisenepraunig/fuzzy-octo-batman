@@ -28,10 +28,10 @@
       "description": "northwind"
     },
     {
-	  "path": "/destinations/learnui5",
+	  "path": "/destinations/mainService",
 	  "target": {
 		"type": "destination",
-		"name": "learnui5"
+		"name": "mainService"
 	  },
 	  "description": "LearnUI5 Service"
 	},

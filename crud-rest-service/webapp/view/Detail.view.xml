@@ -44,7 +44,7 @@
 			id="table"
 			width="auto"
 			class="sapUiResponsiveMargin"
-			items="{products}"
+			items="{Products}"
 			noDataText="No Data"
 			growing="true"
 			growingScrollToLoad="true">

@@ -57,7 +57,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_onObjectMatched : function (oEvent) {
-		    this.sObjectId = oEvent.getParameter("data").id;
+		    this.sObjectId = oEvent.getParameter("arguments").id;
 			this._bindView();
 		},
 

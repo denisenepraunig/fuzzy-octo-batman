@@ -4,33 +4,26 @@ sap.ui.define([
 	"use strict";
 
 	return JSONModel.extend("sapui5.demo.mvcapp.model.AppModel", {
-		saveEntry : function(oObject, sUrl, sLocalPath, aExclude){
+		saveEntry : function(oObject, sUrl, sLocalPath){
 			var sType,
 			that = this,
-			oData,
-			oFullData = jQuery.extend(true, {}, oObject);
+			oData;
 			// local path indicates whether we are updating an existing object or creating a new one
 			if(sLocalPath){
 				sType = "PUT";
 			} else {
 				sType = "POST";
 			}
-			for (var i = 0, len = aExclude.length; i<len; i++){
-				//strip out properties we don't want to update:
-				delete oObject[aExclude[i]]; 
-			}
 			oData = JSON.stringify(oObject);
-			//send the request:
 			jQuery.ajax({
                     type : sType,
                     contentType : "application/json",
                     data: oData,
                     url : sUrl,
                     dataType : "json",
-                    async: true, 
                     success : function() {
                        //store the new/updated entry in the model
-                       that._updateModel(sLocalPath, oFullData);
+                       that._updateModel(sLocalPath, oObject);
                        //call createEntry to reset the dummy property to empty values
                        that.createEntry("/");
                        that.fireRequestCompleted();
@@ -40,8 +33,9 @@ sap.ui.define([
                     }
 			});
 		},
+
 		createEntry : function(sEntityName){
-			this.setProperty(sEntityName + "/createEntry",   
+			this.setProperty(sEntityName + "createEntry",   
 				 {  
 		            "id" : "",
 		            "Name" : "",
@@ -55,6 +49,7 @@ sap.ui.define([
 		            }
 				 });
 		},
+
 		_updateModel : function(sLocalPath, data){
 			if (sLocalPath){
 				//store data for an existing object

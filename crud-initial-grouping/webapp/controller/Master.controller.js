@@ -20,7 +20,7 @@ sap.ui.define([
 			this._IDSorter = new Sorter("id", false);
 			this._NameSorter = new Sorter("Name", false);
 			this._suppliersFilter = new Filter({
-					path:"products", 
+					path:"Products", 
 					test : function(value) {
 						if(value && value.length > 0){
 							return true; 

@@ -6,9 +6,28 @@ sap.ui.define([
             
             onInit : function() {
                 this.oList = this.byId("list");
+                
+                
                 this.oRouter = this.getOwnerComponent().getRouter();
                 this.oRouter.getRoute("detail").attachEvent("patternMatched", this.onDetailRouteHit.bind(this));
                 this.oRouter.getRoute("main").attachEventOnce("patternMatched", this.onMasterRouteHit.bind(this));
+                
+                var that = this;
+                this.oListBindingPromise = new Promise(
+                    function(resolve, reject) {
+                        that.getView().addEventDelegate({
+                            onBeforeFirstShow: function() {
+        					    that.oList.getBinding("items").attachEventOnce("dataReceived", function(oEvent) {
+                                    if(oEvent.getParameter("data")){
+                                        resolve();
+                                    } else {
+                                        reject();
+                                    }       
+                                }, this);        
+				            }.bind(that)
+                        });
+                    }    
+                );
             },
             
             onItemPressed : function(oEvent) {
@@ -20,7 +39,7 @@ sap.ui.define([
             },
             
             onMasterRouteHit : function() {
-                this.oList.attachEventOnce("updateFinished", function() {
+                this.oListBindingPromise.then(function() {
                     var oItems = this.oList.getItems();
                     this.oList.setSelectedItem(oItems[0]);
                     this.oRouter.navTo("detail", {
@@ -35,7 +54,7 @@ sap.ui.define([
                 if (oSelectedItem && oSelectedItem.getBindingContext().getProperty("BusinessPartnerID") === sBusinessPartnerID) {
                     return;
                 } else if (!oSelectedItem) {
-                    this.oList.attachEventOnce("updateFinished", function() {
+                    this.oListBindingPromise.then(function() {
                         this.selectAnItem(sBusinessPartnerID);
                     }.bind(this));
                 } else {

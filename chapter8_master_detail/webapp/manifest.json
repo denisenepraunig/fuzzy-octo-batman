@@ -55,10 +55,6 @@
 				"viewPath": "my.app.view",
 				"viewType": "XML",
 				"async": true,
-<<<<<<< Upstream, based on a84ba0a7337ee9254fcb475c6609480747ca1df2
-				"byPassed": ["notFound", "master"],
-=======
->>>>>>> f2b4c82 added not found handling
 				"bypassed": {
 					"target": ["notFound", "master"]
 				}

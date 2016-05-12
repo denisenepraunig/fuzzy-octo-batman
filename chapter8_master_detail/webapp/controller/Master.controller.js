@@ -6,8 +6,6 @@ sap.ui.define([
             
             onInit : function() {
                 this.oList = this.byId("list");
-                
-                
                 this.oRouter = this.getOwnerComponent().getRouter();
                 this.oRouter.getRoute("detail").attachEvent("patternMatched", this.onDetailRouteHit.bind(this));
                 this.oRouter.getRoute("main").attachEventOnce("patternMatched", this.onMasterRouteHit.bind(this));
@@ -18,16 +16,18 @@ sap.ui.define([
                         that.getView().addEventDelegate({
                             onBeforeFirstShow: function() {
         					    that.oList.getBinding("items").attachEventOnce("dataReceived", function(oEvent) {
-                                    if(oEvent.getParameter("data")){
-                                        resolve();
-                                    } else {
+                                    if(!oEvent.getParameter("data")){
                                         reject();
-                                    }       
-                                }, this);        
+                                    } else {
+                                        resolve();
+                                    }
+                                }, this);
 				            }.bind(that)
                         });
                     }    
-                );
+                ).catch( function() {
+                    this.oRouter.getTargets.daisplay("notFound");
+                }.bind(this));
             },
             
             onItemPressed : function(oEvent) {
@@ -39,12 +39,27 @@ sap.ui.define([
             },
             
             onMasterRouteHit : function() {
-                this.oListBindingPromise.then(function() {
-                    var oItems = this.oList.getItems();
-                    this.oList.setSelectedItem(oItems[0]);
-                    this.oRouter.navTo("detail", {
-                        BusinessPartnerID : oItems[0].getBindingContext().getProperty("BusinessPartnerID")
-                    });
+                this.oListBindingPromise
+                    .then( function() {
+                        var oItems = this.oList.getItems();
+                        this.oList.setSelectedItem(oItems[0]);
+                        this.oRouter.navTo("detail", {
+                            BusinessPartnerID : oItems[0].getBindingContext().getProperty("BusinessPartnerID")
+                        });
+                    }.bind(this));
+            },
+            
+            onDataReceived : function(oEvent) {
+                var oEvt = oEvent;
+                this.oListBindingPromise = new Promise( function(resolve, reject) {
+                    if(!oEvt.parameter("data")) {
+                        reject();
+                    } else {
+                        resolve();
+                    }
+                }.bind(this))
+                .catch( function() {
+                    this.oRouter.getTargets.daisplay("genericError");
                 }.bind(this));
             },
             
@@ -53,12 +68,10 @@ sap.ui.define([
                 var oSelectedItem = this.oList.getSelectedItem();
                 if (oSelectedItem && oSelectedItem.getBindingContext().getProperty("BusinessPartnerID") === sBusinessPartnerID) {
                     return;
-                } else if (!oSelectedItem) {
+                } else {
                     this.oListBindingPromise.then(function() {
                         this.selectAnItem(sBusinessPartnerID);
                     }.bind(this));
-                } else {
-                    this.selectAnItem(sBusinessPartnerID);
                 }
             },
             

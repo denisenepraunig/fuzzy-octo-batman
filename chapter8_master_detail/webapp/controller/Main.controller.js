@@ -16,6 +16,10 @@ sap.ui.define([
 				sContentDensityClass = "sapUiSizeCozy";
 			}
 			this.getView().addStyleClass(sContentDensityClass);
+		},
+		
+		BackToHome : function() {
+		    this.getOwnerComponent().getRouter().navTo("main", true);
 		}
 	});
 

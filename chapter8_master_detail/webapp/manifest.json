@@ -54,7 +54,11 @@
 				"controlId": "rootControl",
 				"viewPath": "my.app.view",
 				"viewType": "XML",
-				"async": true
+				"async": true,
+				"byPassed": ["notFound", "master"],
+				"bypassed": {
+					"target": ["notFound", "master"]
+				}
 			},
 			"routes": [{
 				"pattern": "",
@@ -73,6 +77,18 @@
 				},
 				"detail": {
 					"viewName": "Detail",
+					"controlAggregation": "detailPages"
+				},
+				"notFound": {
+					"transition": "flip",
+					"viewName": "NotFound",
+					"controlId": "rootControl",
+					"controlAggregation": "detailPages"
+				},
+				"businessPartnerNotFound": {
+					"transition": "fade",
+					"viewName": "BusinessPartnerNotFound",
+					"controlId": "rootControl",
 					"controlAggregation": "detailPages"
 				}
 			}

@@ -17,15 +17,15 @@ sap.ui.define([
                         BusinessPartnerID : sID
                     });
                     this.getView().bindElement({
-                        path: "/" + sObjectPath/*,
+                        path: "/" + sObjectPath,
                         events: {
                             dataReceived: function(oData){
                                 if(!oData.getParameter("data")){
-                                    this.oRouter.getTargets().display("objectNotAvailable");    
+                                    this.oRouter.getTargets().display("businessPartnerNotFound");    
                                 }
                             }.bind(this)
-                        }*/
-                    });    
+                        }
+                    });
                 }.bind(this));
             }
 

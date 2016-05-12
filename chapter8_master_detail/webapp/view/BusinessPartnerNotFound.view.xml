@@ -1,0 +1,8 @@
+<mvc:View controllerName="my.app.controller.Main" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<MessagePage description="" icon="sap-icon://doctor" id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}"
+		text="BusinessPartner not found" title="Something went wrong">
+	    <customDescription>
+	        <Link text="click here to get back to main page" press="BackToHome"/>
+	    </customDescription>
+	</MessagePage>
+</mvc:View>

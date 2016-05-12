@@ -13,6 +13,7 @@
             id="list"
             selectionChange="onItemPressed"
             updateFinished="onUpdateFinished"
+            
             mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
             items="{
                 path: '/BusinessPartnerSet'

@@ -32,13 +32,26 @@ module.exports = function(grunt) {
 				options: {
 					resources: {
 						cwd: 'webapp',
-						prefix: 'test/minification'
+						prefix: 'test/minification',
+						src: [
+							'**/*.js',
+							'**/*.fragment.html',
+							'**/*.fragment.json',
+							'**/*.fragment.xml',
+							'**/*.view.html',
+							'**/*.view.json',
+							'**/*.view.xml',
+							'**/*.properties',
+							'**/*.json',
+							'**/*.css'
+						]
 					},
 					dest: 'dist'
 				},
 				components: 'test/minification'
 			}
 		}
+		
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-clean');

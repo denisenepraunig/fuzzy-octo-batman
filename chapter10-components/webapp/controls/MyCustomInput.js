@@ -49,6 +49,7 @@ sap.ui.define([
                 that.setValue(that._oInput.getValue());
             });
 		},
+
 		exit : function() {
 		  this._oInput.destroy();
 		  this._oIcon.destroy();

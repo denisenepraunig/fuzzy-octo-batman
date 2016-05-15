@@ -1,0 +1,22 @@
+<mvc:View
+    controllerName="sapui5.demo.userdetails.controller.UserDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+    <Page title="{i18n>pageTitle}">
+        <HBox class="sapUiMediumMargin">
+            <Image src="{userDetails>image}" class="sapUiMediumMarginBeginEnd"></Image>
+            <VBox>
+                <Label text="{i18n>lblName}" class="sapUiSmallMarginEnd"/>
+                <Label text="{i18n>lblOrigin}" class="sapUiSmallMarginEnd"/>
+                <Label text="{i18n>lblGithubUser}" class="sapUiSmallMarginEnd"/>
+            </VBox>
+            <VBox>
+                <Text text="{userDetails>lastName}, {userDetails>firstName}" class="sapUiSmallMarginBegin"/>
+                <Text text="{userDetails>city}, {userDetails>country}" class="sapUiSmallMarginBegin"/>
+                <Text text="{userDetails>githubUser}" class="sapUiSmallMarginBegin"/>
+            </VBox>
+        </HBox>
+    </Page>
+</mvc:View>

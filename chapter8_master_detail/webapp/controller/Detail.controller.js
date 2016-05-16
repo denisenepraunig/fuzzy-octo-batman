@@ -27,6 +27,10 @@ sap.ui.define([
                         }
                     });
                 }.bind(this));
+            },
+            
+            onNavButtonPressed : function(){
+                this.oRouter.navTo("main");
             }
 
         });

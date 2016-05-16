@@ -3,7 +3,7 @@
 	    showNavButton="{device>/system/phone}"
 		text="Call a doctor..." title="Something went Wrong!">
 	    <customDescription>
-	        <Link text="...orclick here to get back to main page" press="BackToHome"/>
+	        <Link text="...or click here to get back to main page" press="BackToHome"/>
 	    </customDescription>
 	</MessagePage>
 </mvc:View>

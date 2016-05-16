@@ -8,24 +8,25 @@
 				</contentMiddle>
 			</Bar>
 		</semantic:subHeader>
-        <semantic:content> 
-        <List
-            id="list"
-            selectionChange="onItemPressed"
-            updateFinished="onUpdateFinished"
-            
-            mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
-            items="{
-                path: '/BusinessPartnerSet'
-                }">
-            <items>
-                <ObjectListItem
-                	type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
-                    
-                    title="{CompanyName}"
-                    intro="{WebAddress}"/>
-            </items>
-         </List>
+        <semantic:content>
+        	<PullToRefresh id="pullToRefresh" refresh="onRefresh" visible="true"/>
+            <List
+                id="list"
+                selectionChange="onItemPressed"
+                updateFinished="onUpdateFinished"
+                dataReceived="onDataReceived"
+                mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+                items="{
+                    path: '/BusinessPartnerSet'
+                    }">
+                <items>
+                    <ObjectListItem
+                    	type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
+                        press="onItemPressed"
+                        title="{CompanyName}"
+                        intro="{WebAddress}"/>
+                </items>
+             </List>
          </semantic:content>
     </semantic:MasterPage>
 </mvc:View>

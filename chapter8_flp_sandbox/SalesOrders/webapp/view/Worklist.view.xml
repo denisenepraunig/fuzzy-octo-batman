@@ -1,0 +1,65 @@
+<mvc:View 
+    controllerName="sales.order.app.controller.Main" 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:semantic="sap.m.semantic"
+    xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<semantic:FullscreenPage
+	    title="Sales Order Application">
+	    <Table
+	        id="table"
+	        class="sapUiResponsiveMargin"
+	        items="{
+	            path : '/SalesOrderSet',
+	            parameters : {
+	                expand : 'ToBusinessPartner'
+	            }
+	        }"
+	        growing="true"
+	        width="auto"
+	        updateFinished="onTableUpdateFinished">
+    	    <headerToolbar>
+				<Toolbar>
+					<Title
+						id="title"
+						text="Manage Sales Orders"/>
+					<ToolbarSpacer/>
+					<SearchField
+						liveChange="onSearch"
+						selectOnFocus="false"
+						tooltip="{i18n>worklistSearchTooltip}"
+						width="auto"/>
+					<OverflowToolbarButton icon="sap-icon://filter"/>
+				    <OverflowToolbarButton icon="sap-icon://sort"/>
+				</Toolbar>
+			</headerToolbar>
+    	    <columns>
+    	        <Column>
+    				<Text text="Order ID"/>
+    			</Column>
+    			<Column>
+    				<Text text="Customer"/>
+    			</Column>
+    			<Column>
+    				<Text text="Net Amount"/>
+    			</Column>
+    			<Column/>
+    	    </columns>
+    	    <items>
+    			<ColumnListItem 
+    			    vAlign="Middle"
+    				type="Navigation"
+    				press="onItemPress">
+    				<cells>
+    					<Text text="{SalesOrderID}"/>
+    					<Link text="{ToBusinessPartner/CompanyName}" press="onCustomerPressed" data:id="{ToBusinessPartner/BusinessPartnerID}"/>
+    					<Text text="{NetAmount}"/>
+					    <Button text="Create Incoive"/>
+    				</cells>
+    			</ColumnListItem>
+    		</items>
+	    </Table>
+	</semantic:FullscreenPage>
+</mvc:View>

@@ -16,15 +16,22 @@ sap.ui.define([
 				sContentDensityClass = "sapUiSizeCozy";
 			}
 			this.getView().addStyleClass(sContentDensityClass);
+			var oRootControl = this.byId("rootControl");
+            this.getOwnerComponent().getModel().metadataLoaded()
+                .then(function() {
+                    oRootControl.setBusy(false);
+                });
+            this.getOwnerComponent().getModel().attachMetadataFailed(
+                function() {
+                    oRootControl.setBusy(false);
+            });
 		},
 		
 		backToHome : function() {
 		    this.getOwnerComponent().getRouter().navTo("main");
-		},
-		
-		onNavBack : function() {
-		    
 		}
+		
+		
 	});
 
 });

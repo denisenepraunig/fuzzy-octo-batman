@@ -23,7 +23,7 @@ sap.ui.define([
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
-
+            this.getRouter().getTargetHandler().setCloseDialogs(false);
 			this.getRouter().initialize();
 
 			this.getModel().attachEvent("metadataFailed", function(oEvent) {
@@ -34,7 +34,6 @@ sap.ui.define([
 			this.getModel().attachRequestFailed(function(oEvent) {
 				var oParams = oEvent.getParameters();
 				if (oParams.response.statusCode !== "400" && oParams.response.statusCode !== "404") {
-					this.getRouter().getTargetHandler().setCloseDialogs(false);
 					this.getRouter().getTargets().display("notFound");
 					this._showServiceError(oParams.response);
 					                       

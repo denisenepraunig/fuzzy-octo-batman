@@ -16,16 +16,16 @@ sap.ui.define([
                     var sObjectPath = this.getView().getModel().createKey("BusinessPartnerSet", {
                         BusinessPartnerID : sID
                     });
-                    this.getView().bindElement({
-                        path: "/" + sObjectPath,
-                        events: {
-                            dataReceived: function(oData){
-                                if(!oData.getParameter("data")){
-                                    this.oRouter.getTargets().display("businessPartnerNotFound");    
-                                }
-                            }.bind(this)
-                        }
-                    });
+                this.getView().bindElement({
+                    path: "/" + sObjectPath,
+                    events: {
+                        change: function(){
+                            if(!this.getView().getElementBinding().getBoundContext()){
+                                this.oRouter.getTargets().display("businessPartnerNotFound");
+                            }
+                        }.bind(this)
+                    }
+                });
                 }.bind(this));
             },
             

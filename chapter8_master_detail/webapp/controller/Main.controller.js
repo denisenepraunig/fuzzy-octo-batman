@@ -18,8 +18,12 @@ sap.ui.define([
 			this.getView().addStyleClass(sContentDensityClass);
 		},
 		
-		BackToHome : function() {
-		    this.getOwnerComponent().getRouter().navTo("main", true);
+		backToHome : function() {
+		    this.getOwnerComponent().getRouter().navTo("main");
+		},
+		
+		onNavBack : function() {
+		    
 		}
 	});
 

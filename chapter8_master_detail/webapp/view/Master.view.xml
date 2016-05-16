@@ -9,7 +9,7 @@
 			</Bar>
 		</semantic:subHeader>
         <semantic:content>
-        	<PullToRefresh id="pullToRefresh" refresh="onRefresh" visible="true"/>
+        	<PullToRefresh id="pullToRefresh" refresh="onRefresh" visible="{= ${device>/support/touch} }"/>
             <List
                 id="list"
                 selectionChange="onItemPressed"

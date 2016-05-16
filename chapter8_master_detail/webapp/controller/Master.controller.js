@@ -9,8 +9,10 @@ sap.ui.define([
 			this.oList = this.byId("list");
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this.oRouter.getRoute("detail").attachEvent("patternMatched", this.onDetailRouteHit.bind(this));
-			this.oRouter.getRoute("main").attachEventOnce("patternMatched", this.onMasterRouteHit.bind(this));
-
+			this.oRouter.getRoute("main").attachEvent("patternMatched", this.onMasterRouteHit.bind(this));
+			this.oRouter.attachEvent("bypassed", function() {
+			    this.oList.removeSelections(true);         
+			}.bind(this));
 			var that = this;
 			this.oListBindingPromise = new Promise(
 				function(resolve, reject) {
@@ -26,11 +28,7 @@ sap.ui.define([
 						}.bind(that)
 					});
 				}
-			)
-			.catch(function() {
-				this.oRouter.getTargets.display("genericError");
-			}.bind(this));
-
+			);
 		},
 
 		onItemPressed: function(oEvent) {
@@ -65,10 +63,8 @@ sap.ui.define([
 					} else {
 						resolve();
 					}
-				}.bind(this))
-				.catch(function() {
-					this.oRouter.getTargets.display("genericError");
 				}.bind(this));
+				
 		},
 		
 		onUpdateFinished : function() {

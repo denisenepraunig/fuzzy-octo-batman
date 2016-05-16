@@ -85,7 +85,6 @@
 					"controlAggregation": "detailPages"
 				},
 				"businessPartnerNotFound": {
-					"transition": "fade",
 					"viewName": "BusinessPartnerNotFound",
 					"controlId": "rootControl",
 					"controlAggregation": "detailPages"

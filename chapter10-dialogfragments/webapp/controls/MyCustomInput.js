@@ -6,11 +6,7 @@ sap.ui.define([
   "sap/m/Input"
 ], function (Control, Grid, GridData, Icon, Input) {
 	"use strict";
-<<<<<<< Upstream, based on 4c10f349f24ee69509b2bfd86b175ddd8c4f6f54
-    return Control.extend("sapui5.demo.odata.readingdata.bestpractice.controls.MyCustomInput", {
-=======
     return Control.extend("sapui5.demo.advanced.fragments.controls.MyCustomInput", {
->>>>>>> 2c6241d chapter 10 samples for fragments and component
 		metadata : {
 		    properties : {
                 "value": {type: "string", defaultValue: ""},

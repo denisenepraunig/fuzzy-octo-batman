@@ -1,17 +1,39 @@
 sap.ui.define([
-	"sapui5/demo/odata/readingdata/bestpractice/controller/BaseController",
+	"sapui5/demo/advanced/fragments/controller/BaseController",
 	"sap/m/MessageToast",
-	"sap/m/MessageBox"
-], function(BaseController, MessageToast, MessageBox) {
+	"sap/m/MessageBox",
+	"sap/ui/model/json/JSONModel"
+], function(BaseController, MessageToast, MessageBox, JSONModel) {
 	"use strict";
 
-	return BaseController.extend("sapui5.demo.odata.readingdata.bestpractice.controller.Master", {
-
+	return BaseController.extend("sapui5.demo.advanced.fragments.controller.Master", {
+       
 		onInit: function() {
-
+		    var oModel = new JSONModel({
+		        edit: true
+		    });
+		    this.setModel(oModel, "viewModel");
 			this.getRouter().getRoute("master").attachPatternMatched(this.onAdd, this);
 			// this.getModel() of BaseController does not work here!
 			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
+			this._supplierPanel = this.byId("SupplierPanel");
+			this._showEdit();
+		},
+		
+		_showEdit: function(){
+		    if (!this._editFragment){
+                this._editFragment = sap.ui.xmlfragment("sapui5.demo.advanced.fragments.view.EditSupplier");
+		      }
+		      this._supplierPanel.removeAllContent();
+		      this._supplierPanel.addContent(this._editFragment);
+		},
+		
+		_showDisplay: function(){
+	      if (!this._displayFragment){
+	          this._displayFragment = sap.ui.xmlfragment("sapui5.demo.advanced.fragments.view.DisplaySupplier");
+	      }
+	      this._supplierPanel.removeAllContent();
+	      this._supplierPanel.addContent(this._displayFragment);
 		},
 
 		_onMetadataLoaded: function() {
@@ -52,11 +74,9 @@ sap.ui.define([
 		},
 
 		_getPathInfo: function() {
-
 			if (!this._sPath) {
 				var oPage = this.getView().getBindingContext();
-
-				this._sPath = oPage.getBindingContext().getPath();
+				this._sPath = oPage.getPath();
 			}
 			return this._sPath;
 		},
@@ -68,16 +88,29 @@ sap.ui.define([
 		_onCreateError: function(oError) {
 			console.log("onCreateError");
 		},
+		
+		onEdit: function(){
+		  this.getModel("viewModel").setProperty("/edit", true);  
+		  this._showEdit();
+		},
 
 		onSave: function() {
-
 			var	oModel = this.getModel();
 			// submit changes to server
 			oModel.submitChanges();
+			this.getModel("viewModel").setProperty("/edit", false);
+			this._showDisplay();
+		},
+		
+		onResetRequested: function (){
+		    if(!this._oConfirmDialog){
+		        this._oConfirmDialog = sap.ui.xmlfragment("sapui5.demo.advanced.fragments.view.ConfirmDialog", this);
+                this.getView().addDependent(this._oConfirmDialog);		        
+		    }
+		    this._oConfirmDialog.open();
 		},
 
 		onReset: function() {
-
 			var oModel = this.getModel();
 			var sPath = this._getPathInfo();
 			oModel.resetChanges([sPath]);
@@ -87,13 +120,12 @@ sap.ui.define([
 
 			// should contain an empty object
 			console.log("Pending changes:", oModel.getPendingChanges());
-<<<<<<< Upstream, based on 4c10f349f24ee69509b2bfd86b175ddd8c4f6f54
-=======
+			this.getModel("viewModel").setProperty("edit", false);
 		},
-		onUserButtonPress: function(oEvent){
-		    this.navToComp("userdetails", {userID: 1}, this.getOwnerComponent().userComponent);
->>>>>>> 2c6241d chapter 10 samples for fragments and component
-		}
+
+        onCancel: function(){
+            this._oConfirmDialog.close();
+        }		
 	});
 
 });

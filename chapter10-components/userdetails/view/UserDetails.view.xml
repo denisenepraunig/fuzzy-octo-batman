@@ -3,7 +3,12 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:l="sap.ui.layout"
 	xmlns:core="sap.ui.core"
+<<<<<<< Upstream, based on 4c10f349f24ee69509b2bfd86b175ddd8c4f6f54
 	xmlns="sap.m">
+=======
+	xmlns="sap.m"
+	height="100%">
+>>>>>>> 2c6241d chapter 10 samples for fragments and component
     <Page title="{i18n>pageTitle}">
         <HBox class="sapUiMediumMargin">
             <Image src="{userDetails>image}" class="sapUiMediumMarginBeginEnd"></Image>

@@ -1,0 +1,36 @@
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	controllerName="sapui5.demo.advanced.fragments.controller.Master"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Page
+		id="supplierInfo"
+		title="{i18n>SupplierTitle}">
+		<content>
+			<Panel id="SupplierPanel" />
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+				    <Button
+				        icon="sap-icon://edit"
+				        press="onEdit"
+				        text="{i18n>btnEdit}" 
+				        visible="{= !${viewModel>/edit}}"/>
+                    <Button
+                        icon="sap-icon://undo" 
+                        press="onResetRequested" 
+                        text="{i18n>btnResetChanges}"
+                        visible="{viewModel>/edit}" />
+                    <Button
+                        icon="sap-icon://save" 
+                        type="Accept" 
+                        press="onSave" 
+                        text="{i18n>btnSaveChanges}"
+                        visible="{viewModel>/edit}" />
+                </contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

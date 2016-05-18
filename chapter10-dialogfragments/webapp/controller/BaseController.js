@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("myCompany.myApp.controller.BaseController", {
+	return Controller.extend("sapui5.demo.advanced.fragments.controller.BaseController", {
 		/**
 		 * Convenience method for accessing the router.
 		 * @public
@@ -54,20 +54,8 @@ sap.ui.define([
 				oViewModel.getProperty("/shareSendEmailSubject"),
 				oViewModel.getProperty("/shareSendEmailMessage")
 			);
-<<<<<<< Upstream, based on 4c10f349f24ee69509b2bfd86b175ddd8c4f6f54
 		}
 
 	});
 
-=======
-		},
-		navToComp: function (sTarget, mSettings, oTargetComponent){
-		    if (!oTargetComponent) {
-		        this.getRouter().navTo(sTarget, mSettings);
-		    } else {
-		        oTargetComponent.getRouter().navTo(sTarget, mSettings);
-		    }
-	    }
-	});
->>>>>>> 2c6241d chapter 10 samples for fragments and component
 });

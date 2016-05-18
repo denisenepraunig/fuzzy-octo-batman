@@ -8,6 +8,12 @@
 	<Page
 		id="productInfo"
 		title="Product {ProductID} Info">
+<<<<<<< Upstream, based on 4c10f349f24ee69509b2bfd86b175ddd8c4f6f54
+=======
+	    <headerContent>
+	                <Button press="onUserButtonPress" text="User Details"></Button>
+	    </headerContent>
+>>>>>>> 2c6241d chapter 10 samples for fragments and component
 		<content>
 			<Panel>
 				<f:SimpleForm>

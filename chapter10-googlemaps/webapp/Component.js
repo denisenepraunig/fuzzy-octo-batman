@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(UIComponent) {
 	"use strict";
 
-	return UIComponent.extend("sapui5.demo.odata.readingdata.bestpractice.Component", {
+	return UIComponent.extend("sapui5.demo.advanced.fragments.Component", {
 
 		metadata: {
 			manifest: "json"
@@ -17,15 +17,9 @@ sap.ui.define([
 		init: function() {
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
-			jQuery.sap.registerResourcePath("userDetails", "../../userdetails");
+			
 			// create the views based on the url/hash
 			this.getRouter().initialize();
-			// create the views based on the url/hash
-			this.getRouter().initialize();
-			this.userComponent = sap.ui.getCore().createComponent({
-                 name: "sapui5.demo.userdetails",
-                 id: "Comp1"
-        });
 		}
 	});
 

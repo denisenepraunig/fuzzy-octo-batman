@@ -1,6 +1,7 @@
 <core:FragmentDefinition
+    xmlns:core="sap.ui.core"
     xmlns="sap.m"
-    xmlns:core="sap.ui.core">
+    xmlns:my="sapui5.demo.advanced.fragments.controls">
         <HBox>
             <VBox class="sapUiSmallMarginEnd">
                 <Label text="{i18n>SupplierID}"/>
@@ -18,5 +19,8 @@
                 <Text text="{Address/ZipCode}"/>
                 <Text text="{Address/Country}" />
             </VBox>
+            <VBox>
+        		<my:MyGoogleMaps title="{Name}" address="{Address/Street}, {Address/ZipCode} {Address/City}, {Address/Country}" zoom="15" />
+        	</VBox>
         </HBox>
 </core:FragmentDefinition>

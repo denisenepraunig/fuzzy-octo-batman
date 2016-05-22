@@ -12,19 +12,20 @@
 			data-sap-ui-libs="sap.m"
 			data-sap-ui-theme="sap_bluecrystal"
 			data-sap-ui-compatVersion="edge"
-			data-sap-ui-resourceroots='{"sapui5.demo.odata.readingdata.bestpractice": "./"}'>
+			data-sap-ui-resourceroots='{"sapui5.demo.advanced.fragments": "./"}'>
 		</script>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 		<script>
 			sap.ui.getCore().attachInit(function() {
-				new sap.m.Shell({
-					app: new sap.ui.core.ComponentContainer({
-						height : "100%",
-						name : "sapui5.demo.odata.readingdata.bestpractice"
-					})
-				}).placeAt("content");
+				jQuery.sap.registerModulePath("sapui5.demo.advanced.fragments.controls", "./controls/");
+				  jQuery.sap.require("sapui5.demo.advanced.fragments.controls.MyGoogleMaps");
+				var myGoogleMaps = new sapui5.demo.advanced.fragments.controls.MyGoogleMaps();
+				myGoogleMaps.setAddress("Feldbergstr. 58, 69163 Mannheim, Germany");
+				myGoogleMaps.setZoom(15);
+				myGoogleMaps.setTitle("Hello World");
+				myGoogleMaps.placeAt("content");
 			});
 		</script>
 	</head>

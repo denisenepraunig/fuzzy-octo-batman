@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Control){
     	"use strict";
     	
-    	Control.extend("sapui5.demo.advanced.fragments.controls.MyGoogleMaps", {
+    	Control.extend("sapui5.demo.advanced.testing.controls.MyGoogleMaps", {
     			// the control API:
 			metadata : {
 				properties : {   // setter and getter are created behind the scenes, incl. data binding and type validation

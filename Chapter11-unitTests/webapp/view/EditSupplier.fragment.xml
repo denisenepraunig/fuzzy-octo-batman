@@ -1,0 +1,23 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+	xmlns:my="sapui5.demo.advanced.testing.controls">
+    	<f:SimpleForm>
+            <core:Title text="Supplier Information" />
+			<Label text="Supplier ID"/>
+			<my:MyCustomInput value="{ID}" iconURI="company-view" />
+			<Label text="Company Name"/>
+			<my:MyCustomInput value="{Name}" iconURI="company-view" />
+			<Label text="Street"/>
+			<my:MyCustomInput value="{Address/Street}" iconURI="building" />
+			<Label text="City"/>
+			<my:MyCustomInput value="{Address/City}" iconURI="addresses" />
+			<Label text="ZipCode"/>
+			<my:MyCustomInput value="{Address/ZipCode}" iconURI="addresses" />
+			<Label text="Country"/>
+			<my:MyCustomInput value="{Address/Country}" iconURI="world" />
+			<Label text="Concurrency"/>
+			<Input value="{Concurrency}"  />
+		</f:SimpleForm>
+</core:FragmentDefinition>

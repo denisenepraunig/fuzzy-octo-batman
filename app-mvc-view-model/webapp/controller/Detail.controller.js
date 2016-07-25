@@ -39,8 +39,18 @@ sap.ui.define([
 			this.myNavBack("master");
 		},
 		
-		onNavUp : function() {
-		    this.getRouter().navTo("detail", {id: sID});
+		onPageUp : function(oEvent) {
+			var sID = oEvent.getSource().getBindingContext().sPath;
+			sID = parseInt(sID.substr(sID.lastIndexOf("/")+1));
+			sID = sID-1;
+		    this.getRouter().navTo("detail", {ID: sID});
+		},
+		
+		onPageDown : function(oEvent) {
+			var sID = oEvent.getSource().getBindingContext().sPath;
+			sID = parseInt(sID.substr(sID.lastIndexOf("/")+1));
+			sID += 1;
+		    this.getRouter().navTo("detail", {ID: sID});
 		},
 
 		/**

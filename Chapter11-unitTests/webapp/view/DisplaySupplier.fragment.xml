@@ -1,0 +1,26 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:my="sapui5.demo.advanced.testing.controls">
+        <HBox>
+            <VBox class="sapUiSmallMarginEnd">
+                <Label text="{i18n>SupplierID}"/>
+    			<Label text="{i18n>CompanyName}"/>
+    			<Label text="{i18n>Street}" />
+    			<Label text="{i18n>City}" />
+    			<Label text="{i18n>ZipCode}" />
+    			<Label text="Country"/>
+            </VBox>
+            <VBox>
+                <Text text="{ID}" />
+                <Text text="{Name}" />
+                <Text text="{Address/Street}" />
+                <Text text="{Address/City}" />
+                <Text text="{Address/ZipCode}"/>
+                <Text text="{Address/Country}" />
+            </VBox>
+            <VBox>
+        		<my:MyGoogleMaps title="{Name}" address="{Address/Street}, {Address/ZipCode} {Address/City}, {Address/Country}" zoom="15" />
+        	</VBox>
+        </HBox>
+</core:FragmentDefinition>

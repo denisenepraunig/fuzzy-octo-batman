@@ -8,7 +8,7 @@
 	<title>OData Model Init Metadata</title>
 
 	<script id="sap-ui-bootstrap"
-			src="../resources/sap-ui-core.js"
+			src="../../resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m"
 			data-sap-ui-theme="sap_bluecrystal"
 			data-sap-ui-compatVersion="edge"
@@ -17,18 +17,18 @@
 	<script>
 		var sServiceURL = "/destinations/northwind/V3/Northwind/Northwind.svc/";
 		
-        // instantiate the model
-        var oModel = sap.ui.model.odata.v2.ODataModel(sServiceURL);
-        
-        // don't batch the requests for now
-        oModel.setUseBatch(false);
-        
-        oModel.attachMetadataLoaded(function () {
-        	var oMetaData = oModel.getServiceMetadata();
-        	console.log("Service Metadata", oMetaData);
-        });
-        
-        sap.ui.getCore().setModel(oModel);
+		// instantiate the model
+		var oModel = sap.ui.model.odata.v2.ODataModel(sServiceURL);
+		
+		// don't batch the requests for now
+		oModel.setUseBatch(false);
+		
+		oModel.attachMetadataLoaded(function () {
+			var oMetaData = oModel.getServiceMetadata();
+			console.log("Service Metadata", oMetaData);
+		});
+		
+		sap.ui.getCore().setModel(oModel);
 	</script>
 </head>
 	<body class="sapUiBody" role="application">

@@ -8,7 +8,7 @@
 	<title>OData Model First Steps</title>
 
 	<script id="sap-ui-bootstrap"
-			src="../resources/sap-ui-core.js"
+			src="../../resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m"
 			data-sap-ui-theme="sap_bluecrystal"
 			data-sap-ui-compatVersion="edge"
@@ -19,21 +19,21 @@
 		
 		var sServiceURL = "/destinations/northwind/V3/Northwind/Northwind.svc/";
 		
-        // instantiate the model
-        var oModel = sap.ui.model.odata.v2.ODataModel(sServiceURL);
-        
-        oModel.setUseBatch(false);
-        
-        sap.ui.getCore().setModel(oModel);
-        
+		// instantiate the model
+		var oModel = sap.ui.model.odata.v2.ODataModel(sServiceURL);
+		
+		oModel.setUseBatch(false);
+		
+		sap.ui.getCore().setModel(oModel);
+		
 		var oPageMaster = sap.ui.view("masterPage", { 
-            type: sap.ui.core.mvc.ViewType.XML,
-            viewName: "sapui5.demo.odata.readingdata.view.BindingProduct",
-        });
-        
-        var oApp = new sap.m.App();
-        oApp.addPage(oPageMaster);
-        oApp.placeAt("content");
+			type: sap.ui.core.mvc.ViewType.XML,
+			viewName: "sapui5.demo.odata.readingdata.view.BindingProduct",
+		});
+		
+		var oApp = new sap.m.App();
+		oApp.addPage(oPageMaster);
+		oApp.placeAt("content");
 	</script>
 </head>
 

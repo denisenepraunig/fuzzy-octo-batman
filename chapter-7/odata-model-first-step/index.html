@@ -8,7 +8,7 @@
 	<title>OData Model First Steps</title>
 
 	<script id="sap-ui-bootstrap"
-			src="../resources/sap-ui-core.js"
+			src="../../resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m"
 			data-sap-ui-theme="sap_bluecrystal"
 			data-sap-ui-compatVersion="edge"
@@ -21,65 +21,64 @@
 		} };
 		var handler = function (param) {
 			this.mimi(param);
-		}
-		
+		};
 		
 		var sServiceURL = "/destinations/northwind/V3/Northwind/Northwind.svc/?myParam=value&myParam2=value";
-        
-        // instantiate the model
-        var oModel = sap.ui.model.odata.v2.ODataModel(sServiceURL);
+		
+		// instantiate the model
+		var oModel = sap.ui.model.odata.v2.ODataModel(sServiceURL);
 
-        /*oModel.attachMetadataLoaded(myObject, function () {
-        	var oMetaData = oModel.getServiceMetadata();
-        	console.log("Service Metadata", oMetaData);
-        }, handler);*/
-        
-        oModel.attachMetadataLoaded(myObject, handler, myObject);
-        
-        oModel.setUseBatch(false);
-        
-        sap.ui.getCore().setModel(oModel);
-        
-        var aColumns = [ 
-            new sap.m.Column({
-                header : new sap.m.Text({
-				    text : "Product ID"
-			    })
-            }),
-            new sap.m.Column({
-                header : new sap.m.Text({
-				    text : "Product Name"
-			    })
-            })
-        ];
-        
-        var oTemplate = new sap.m.ColumnListItem({
-    		cells : [
-    			new sap.m.ObjectIdentifier({
-    				text : "{ProductID}"
-    			}),
-    			new sap.m.ObjectIdentifier({
-    				text : "{ProductName}"
-    			})
-    		]
-    	});
-        
-        var oTable = new sap.m.Table({
-            columns : aColumns
-        });
-        
-        oTable.bindItems("/Products", oTemplate);
+		/*oModel.attachMetadataLoaded(myObject, function () {
+			var oMetaData = oModel.getServiceMetadata();
+			console.log("Service Metadata", oMetaData);
+		}, handler);*/
+		
+		oModel.attachMetadataLoaded(myObject, handler, myObject);
+		
+		oModel.setUseBatch(false);
+		
+		sap.ui.getCore().setModel(oModel);
+		
+		var aColumns = [ 
+			new sap.m.Column({
+				header : new sap.m.Text({
+					text : "Product ID"
+				})
+			}),
+			new sap.m.Column({
+				header : new sap.m.Text({
+					text : "Product Name"
+				})
+			})
+		];
+		
+		var oTemplate = new sap.m.ColumnListItem({
+			cells : [
+				new sap.m.ObjectIdentifier({
+					text : "{ProductID}"
+				}),
+				new sap.m.ObjectIdentifier({
+					text : "{ProductName}"
+				})
+			]
+		});
+		
+		var oTable = new sap.m.Table({
+			columns : aColumns
+		});
+		
+		oTable.bindItems("/Products", oTemplate);
 
-        oTable.addStyleClass("sapUiResponsiveMargin");
-        
-        var oPageMaster = new sap.m.Page("masterPage", {
-    		title : "Products Overview",
-    		content : [oTable]
-    	});
-        
-        var oApp = new sap.m.App();
-        oApp.addPage(oPageMaster);
-        oApp.placeAt("content");
+		oTable.addStyleClass("sapUiResponsiveMargin");
+		
+		var oPageMaster = new sap.m.Page("masterPage", {
+			title : "Products Overview",
+			content : [oTable]
+		});
+		
+		var oApp = new sap.m.App();
+		oApp.addPage(oPageMaster);
+		oApp.placeAt("content");
 		
 	</script>
 </head>

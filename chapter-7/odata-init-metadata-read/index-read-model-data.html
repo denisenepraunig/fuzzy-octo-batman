@@ -8,46 +8,46 @@
 	<title>OData Model Init Metadata</title>
 
 	<script id="sap-ui-bootstrap"
-			src="../resources/sap-ui-core.js"
-			data-sap-ui-libs="sap.m"
-			data-sap-ui-theme="sap_bluecrystal"
-			data-sap-ui-compatVersion="edge"
-			data-sap-ui-xx-bindingSyntax="complex">
+		src="../../resources/sap-ui-core.js"
+		data-sap-ui-libs="sap.m"
+		data-sap-ui-theme="sap_bluecrystal"
+		data-sap-ui-compatVersion="edge"
+		data-sap-ui-xx-bindingSyntax="complex">
 	</script>
 	<script>
-		var sServiceURL = "/destinations/northwind/V3/Northwind/Northwind.svc/";
+	var sServiceURL = "/destinations/northwind/V3/Northwind/Northwind.svc/";
 		
-        // instantiate the model
-        var oModel = sap.ui.model.odata.v2.ODataModel(sServiceURL);
-        
-        // don't batch the requests for now
-        oModel.setUseBatch(false);
-        
-        function fnSuccess(oData, oResponse) {
-        	console.log("Data", oData);
-        	console.log("Response", oResponse);
-        	
-        	// accessing the data from the model now
-        	var oProduct1 = oModel.getData("/Products(1)");
-        	var oProduct1Name = oModel.getProperty("/Products(1)/ProductName");
-        	console.log("Product 1 from Model", oProduct1);
-        	console.log("Product 1 name from Model", oProduct1Name);
-        }
-        
-        function fnError(oError) {
-        	console.log("Error", oError);
-        }
+	// instantiate the model
+	var oModel = sap.ui.model.odata.v2.ODataModel(sServiceURL);
+	
+	// don't batch the requests for now
+	oModel.setUseBatch(false);
+	
+	function fnSuccess(oData, oResponse) {
+		console.log("Data", oData);
+		console.log("Response", oResponse);
+		
+		// accessing the data from the model now
+		var oProduct1 = oModel.getData("/Products(1)");
+		var oProduct1Name = oModel.getProperty("/Products(1)/ProductName");
+		console.log("Product 1 from Model", oProduct1);
+		console.log("Product 1 name from Model", oProduct1Name);
+	}
+	
+	function fnError(oError) {
+		console.log("Error", oError);
+	}
 
-        oModel.read("/Products(1)", {success: fnSuccess, error: fnError});
-        
-        // notice - no GET request will be triggerd
-        // oProduct2 will be undefined
-        // data from the model can only be accessed if the 
-        // data has already been requested
-        var oProduct2 = oModel.getData("/Products(2)");
-        console.log("Data from product 2 (not available)", oProduct2);
-        
-        sap.ui.getCore().setModel(oModel);
+	oModel.read("/Products(1)", {success: fnSuccess, error: fnError});
+	
+	// notice - no GET request will be triggerd
+	// oProduct2 will be undefined
+	// data from the model can only be accessed if the 
+	// data has already been requested
+	var oProduct2 = oModel.getData("/Products(2)");
+	console.log("Data from product 2 (not available)", oProduct2);
+	
+	sap.ui.getCore().setModel(oModel);
 	</script>
 </head>
 	<body class="sapUiBody" role="application">

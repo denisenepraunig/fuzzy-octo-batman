@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8">
+
+	<title>MVC App</title>
+
+	<script id="sap-ui-bootstrap"
+			src="../../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-xx-bindingSyntax="complex">
+	</script>
+	<script>
+		// application data
+		var oData = {
+			"CountSuppliers" : "2",
+			"Suppliers":[
+				{
+					"ID":0,
+					"Name":"Exotic Liquids",
+					"Address":{  
+						"Street":"NE 228th",
+						"City":"Sammamish",
+						"State":"WA",
+						"ZipCode":"98074",
+						"Country":"USA"
+					}
+				},
+				{
+					"ID":1,
+					"Name":"Tokyo Traders",
+					"Address":{  
+						"Street":"NE 40th",
+						"City":"Redmond",
+						"State":"WA",
+						"ZipCode":"98052",
+						"Country":"USA"
+					}
+				}
+			]
+		};
+
+		// model creation and setting data
+		var oModel = sap.ui.model.json.JSONModel();
+		oModel.setData(oData);
+
+		// setting the model to the core
+		// so that it is available in the whole application
+		sap.ui.getCore().setModel(oModel);
+		
+		sap.ui.getCore().setModel(oModel);
+		
+		var aColumns = [ 
+			new sap.m.Column({
+				header : new sap.m.Text({
+					text : "ID"
+				})
+			}),
+			new sap.m.Column({
+				header : new sap.m.Text({
+					text : "Name"
+				})
+			})
+		];
+		
+		var oTemplate = new sap.m.ColumnListItem({
+			type: "Navigation",
+			press: function(oEvent) {
+				
+				var sPageId = "detailPage";
+				oApp.to(sPageId);
+				
+				var oPage = oApp.getPage(sPageId);
+				var oContext = oEvent.getSource().getBindingContext();
+				oPage.setBindingContext(oContext);
+			},
+			cells : [
+				new sap.m.ObjectIdentifier({
+					text : "{ID}"
+				}),
+				new sap.m.ObjectIdentifier({
+					text : "{Name}"
+				})
+			]
+		});
+		
+		var oTableHeader = new sap.m.Toolbar({
+		content : [
+				new sap.m.Title({
+					text : "Number of Suppliers: {/CountSuppliers}"
+				})
+			]
+		});
+		
+		var oTable = new sap.m.Table({
+			columns : aColumns,
+			headerToolbar : oTableHeader
+		});
+		
+		oTable.bindItems("/Suppliers", oTemplate);
+		oTable.addStyleClass("sapUiResponsiveMargin");
+		
+		var oPageMaster = new sap.m.Page("masterPage", {
+			title : "Supplier Overview",
+			content : [oTable]
+		});
+		
+		var oObjectHeader = new sap.m.ObjectHeader({
+			title: "{Name}",
+			number: "ID: {ID}",
+			attributes: [
+					new sap.m.ObjectAttribute({
+						text: "{Address/Country}"
+					})
+				]
+		});
+		
+		var oPageDetail = new sap.m.Page("detailPage", {
+			title : "Supplier Detail",
+			showNavButton: true,
+			navButtonPress: function(){ 
+				oApp.back();
+			},
+			content : [oObjectHeader]
+		});
+		
+		var oApp = new sap.m.App("myApp", { 
+			initialPage:"masterPage"
+		});
+		
+		oApp.addPage(oPageMaster).addPage(oPageDetail);
+		oApp.placeAt("content");
+		
+	</script>
+</head>
+
+<body class="sapUiBody" role="application">
+	<div id="content"></div>
+</body>
+
+</html>

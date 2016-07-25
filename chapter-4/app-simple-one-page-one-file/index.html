@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8">
+
+	<title>MVC App</title>
+
+	<script id="sap-ui-bootstrap"
+			src="../../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-xx-bindingSyntax="complex">
+	</script>
+	<script>
+		var oData = {
+			"CountSuppliers" : "2",
+			"Suppliers":[  
+				{  
+					"ID":0,
+					"Name":"Exotic Liquids",
+					"Address":{  
+						"Street":"NE 228th",
+						"City":"Sammamish",
+						"State":"WA",
+						"ZipCode":"98074",
+						"Country":"USA"
+					}
+				},
+				{  
+					"ID":1,
+					"Name":"Tokyo Traders",
+					"Address":{  
+						"Street":"NE 40th",
+						"City":"Redmond",
+						"State":"WA",
+						"ZipCode":"98052",
+						"Country":"USA"
+					}
+				}
+			]
+		};
+		
+		var oModel = sap.ui.model.json.JSONModel();
+		oModel.setData(oData);
+		
+		sap.ui.getCore().setModel(oModel);
+		
+		var aColumns = [ 
+			new sap.m.Column({
+				header : new sap.m.Text({
+					text : "ID"
+				})
+			}),
+			new sap.m.Column({
+				header : new sap.m.Text({
+					text : "Name"
+				})
+			})
+		];
+		
+		var oTemplate = new sap.m.ColumnListItem({
+			cells : [
+				new sap.m.ObjectIdentifier({
+					text : "{ID}"
+				}),
+				new sap.m.ObjectIdentifier({
+					text : "{Name}"
+				})
+			]
+		});
+		
+		var oTable = new sap.m.Table({
+			columns : aColumns
+		});
+		
+		oTable.bindItems("/Suppliers", oTemplate);
+		oTable.addStyleClass("sapUiResponsiveMargin");
+		
+		var oPageMaster = new sap.m.Page("masterPage", {
+			title : "Supplier Overview",
+			content : [oTable]
+		});
+		
+		var oApp = new sap.m.App();
+		oApp.addPage(oPageMaster);
+		oApp.placeAt("content");
+		
+	</script>
+</head>
+
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+
+</html>

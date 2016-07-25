@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8">
+
+	<title>MVC App</title>
+
+	<script id="sap-ui-bootstrap"
+			src="../../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-preload="async"
+			data-sap-ui-resourceroots='{"sapui5.demo.mvcapp": "./webapp/"}'>
+	</script>
+	<script>
+
+		var oApp;
+		
+		sap.ui.getCore().attachInit(function () {
+			sap.ui.require([
+				"sap/ui/core/ComponentContainer",
+				"sapui5/demo/mvcapp/Component"
+			], function (ComponentContainer, Component) {
+
+				new ComponentContainer({
+					height : "100%",
+					component : new Component({
+						id: "mvcAppComponent"
+					})
+				}).placeAt("content");
+			});
+		});
+		
+	</script>
+</head>
+
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+
+</html>

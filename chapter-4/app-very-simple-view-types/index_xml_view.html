@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8">
+
+	<title>MVC App</title>
+
+	<script id="sap-ui-bootstrap"
+			src="../../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-xx-bindingSyntax="complex"
+			data-sap-ui-resourceroots='{"sapui5.demo.viewtypes": "./webapp/"}'>
+	</script>
+	<script>
+		
+		var oPage = sap.ui.view("page",
+		{ type: sap.ui.core.mvc.ViewType.XML,
+			viewName: "sapui5.demo.viewtypes.view.View",
+		});
+		
+		var oApp = new sap.m.App();
+		oApp.addPage(oPage);
+		oApp.placeAt("content");
+	</script>
+</head>
+
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+
+</html>

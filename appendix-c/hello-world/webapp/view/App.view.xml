@@ -1,0 +1,10 @@
+<mvc:View controllerName="sapui5.demo.helloworld.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content></content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

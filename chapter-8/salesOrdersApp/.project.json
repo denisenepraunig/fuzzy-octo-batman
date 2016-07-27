@@ -1,0 +1,7 @@
+{
+  "hcpdeploy": {
+    "account": "d058255trial",
+    "name": "salesorders",
+    "lastVersionWeTriedToDeploy": "1.0.2"
+  }
+}

@@ -36,12 +36,12 @@
 	  "description": "LearnUI5 Service"
 	},
 	{
-      "path": "/destinations/ES4",
+      "path": "/destinations/es4",
       "target": {
         "type": "destination",
-        "name": "ES4"
+        "name": "es4"
       },
-      "description": "ES4"
+      "description": "es4"
     }
   ]
 }

@@ -16,7 +16,7 @@
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/destinations/northwind/V2/(S(1lst1k1r1b0lbhbqqn02qmss))/OData/OData.svc/",
+				"uri": "/destinations/northwind/V2/(S(5qxuaijicd3525cnpt1534kr))/OData/OData.svc/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0"

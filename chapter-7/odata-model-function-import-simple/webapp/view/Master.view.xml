@@ -16,7 +16,7 @@
 						<ToolbarSpacer />
 						<SearchField 
 							width="50%" 
-							placeholder="Rating"
+							placeholder="Enter Rating"
 							search="onGetProductsByRating" />
 					</Toolbar>
 				</headerToolbar>

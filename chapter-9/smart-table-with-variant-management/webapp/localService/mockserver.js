@@ -7,7 +7,7 @@ sap.ui.define([
 
 		init: function () {
 
-			var sModulePath = jQuery.sap.getModulePath("sap.ui.demo.smartControls.localService");
+			var sModulePath = jQuery.sap.getModulePath("sap.ui.demo.smartControls.table.variant.localService");
 
 			// enable fake lrep for variant management
 			jQuery.sap.require("sap.ui.fl.FakeLrepConnector");

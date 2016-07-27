@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(UIComponent) {
 	"use strict";
 
-	return UIComponent.extend("sap.ui.demo.smartControls.Component", {
+	return UIComponent.extend("sap.ui.demo.smartControls.table.wo.pers.Component", {
 		metadata: {
 			manifest: "json"
 		},

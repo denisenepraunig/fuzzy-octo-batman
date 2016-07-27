@@ -12,7 +12,7 @@
 	data-sap-ui-compatVersion="edge"
 	data-sap-ui-preload="async"
 	data-sap-ui-resourceroots='{
-		"sap.ui.demo.smartControls": "./"
+		"sap.ui.demo.smartControls.filterbar": "./"
 	}'>
 </script>
 <script>
@@ -22,7 +22,7 @@
 		], function(mockserver) {
 			mockserver.init();
 			new sap.ui.core.ComponentContainer({
-				name: "sap.ui.demo.smartControls",
+				name: "sap.ui.demo.smartControls.filterbar",
 				height: "100%"
 			}).placeAt("content");
 		});

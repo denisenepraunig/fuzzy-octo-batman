@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("sap.ui.demo.smartControls.controller.BaseController", {
+	return Controller.extend("sap.ui.demo.smartControls.filterbar.controller.BaseController", {
 		/**
 		 * Convenience method for accessing the router.
 		 * @public

@@ -2,7 +2,7 @@
   "_version": "1.1.0",
   "sap.app": {
 	"_version": "1.1.0",
-	"id": "sap.ui.demo.smartControls",
+	"id": "sap.ui.demo.smartControls.table.variant",
 	"type": "application",
 	"title": "SAPUI5 Smart Controls",
 	"description": "A simple app that explains the most important concepts of smart controls in SAPUI5",
@@ -26,7 +26,7 @@
   },
   "sap.ui5": {
 	"_version": "1.1.0",
-	"rootView": "sap.ui.demo.smartControls.view.App",
+	"rootView": "sap.ui.demo.smartControls.table.variant.view.App",
 	"dependencies": {
 	  "minUI5Version": "1.30",
 	  "libs": {
@@ -46,7 +46,7 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "sap.ui.demo.smartControls.view",
+				"viewPath": "sap.ui.demo.smartControls.table.variant.view",
 				"controlId": "app",
 				"controlAggregation": "pages"
 			},

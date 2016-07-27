@@ -1,7 +1,7 @@
 <mvc:View 
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	controllerName="sap.ui.demo.smartControls.controller.Master"
+	controllerName="sap.ui.demo.smartControls.table.controller.Master"
 	xmlns:smartTable="sap.ui.comp.smarttable">
 	<Page 
 		id="page" 

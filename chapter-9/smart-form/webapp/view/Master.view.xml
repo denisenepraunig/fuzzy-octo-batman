@@ -1,7 +1,7 @@
 <mvc:View 
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	controllerName="sap.ui.demo.smartControls.controller.Master"
+	controllerName="sap.ui.demo.smartControls.form.controller.Master"
 	xmlns:smartForm="sap.ui.comp.smartform" 
 	xmlns:smartField="sap.ui.comp.smartfield">
 	<Page 

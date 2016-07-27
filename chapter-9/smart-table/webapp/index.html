@@ -12,17 +12,17 @@
 	data-sap-ui-compatVersion="edge"
 	data-sap-ui-preload="async"
 	data-sap-ui-resourceroots='{
-		"sap.ui.demo.smartControls": "./"
+		"sap.ui.demo.smartControls.table": "./"
 	}'>
 </script>
 <script>
 	sap.ui.getCore().attachInit(function() {
 		sap.ui.require([
-			"sap/ui/demo/smartControls/localService/mockserver"
+			"sap/ui/demo/smartControls/table/localService/mockserver"
 		], function(mockserver) {
 			mockserver.init();
 			new sap.ui.core.ComponentContainer({
-				name: "sap.ui.demo.smartControls",
+				name: "sap.ui.demo.smartControls.table",
 				height: "100%"
 			}).placeAt("content");
 		});

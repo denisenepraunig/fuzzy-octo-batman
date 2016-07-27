@@ -19,7 +19,7 @@ sap.ui.define([
 			});
 
 			// simulate
-			var sPath = jQuery.sap.getModulePath("sap.ui.demo.smartControls.localService");
+			var sPath = jQuery.sap.getModulePath("sap.ui.demo.smartControls.form.localService");
 			oMockServer.simulate(sPath + "/metadata.xml", sPath);
 
 			// start

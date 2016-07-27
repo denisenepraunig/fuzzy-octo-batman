@@ -15,26 +15,10 @@
 			data-sap-ui-xx-bindingSyntax="complex">
 	</script>
 	<script>
-		
-		var myObject = { whatever: "foo", mimi: function(param) {
-			console.log(param, "mimi");
-		} };
-		var handler = function (param) {
-			this.mimi(param);
-		};
-		
-		
 		var sServiceURL = "/destinations/northwind/V3/Northwind/Northwind.svc/?myParam=value&myParam2=value";
 		
 		// instantiate the model
 		var oModel = sap.ui.model.odata.v2.ODataModel(sServiceURL);
-
-		/*oModel.attachMetadataLoaded(myObject, function () {
-			var oMetaData = oModel.getServiceMetadata();
-			console.log("Service Metadata", oMetaData);
-		}, handler);*/
-		
-		oModel.attachMetadataLoaded(myObject, handler, myObject);
 		
 		oModel.setUseBatch(false);
 		

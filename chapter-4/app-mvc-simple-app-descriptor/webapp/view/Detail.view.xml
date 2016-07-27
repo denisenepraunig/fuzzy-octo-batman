@@ -1,0 +1,21 @@
+<mvc:View
+	controllerName="sapui5.demo.mvcapp.controller.Detail"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page
+		id="page"
+		navButtonPress="onNavPress"
+		showNavButton="true"
+		title="{i18n>detailTitle}">
+		<content>
+			<ObjectHeader
+				id="objectHeader"
+				title="{Name}"
+				number="{i18n>ID}: {ID}">
+				<ObjectAttribute
+				    text="{Address/Country}">
+				</ObjectAttribute>
+			</ObjectHeader>
+		</content>
+	</Page>
+</mvc:View>

@@ -5,8 +5,8 @@
 	xmlns:core="sap.ui.core"
 	xmlns="sap.m">
 	<Page
-		id="productInfo"
-		title="Product {ProductID} Info">
+		id="supplierInfo"
+		title="Create Supplier">
 		<content>
 			<Panel>
 				<f:SimpleForm>

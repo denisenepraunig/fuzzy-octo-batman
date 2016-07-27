@@ -10,26 +10,57 @@ sap.ui.define([
 		onInit: function() {
 
 			this.getRouter().getRoute("master").attachPatternMatched(this.onAdd, this);
-			// this.getModel() of BaseController does not work here!
-			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
 		},
 
 		_onMetadataLoaded: function() {
-
-			this._bMetadtaLoaded = true;
-			if (this._bRoutingReady) {
-				this._createEntry();
-			}
+			this.getView().setBusy(false);
+			this._createEntry();
 		},
 
 		onAdd: function() {
 
-			this._bRoutingReady = true;
-
-			if (this._bMetadtaLoaded) {
-				this._createEntry();
-			}
+			this.getView().setBusy(true);
+			
+			this._oModel = this.getModel();
+			this._oModel.metadataLoaded().then(this._onMetadataLoaded.bind(this));
+			
+			this._oModel.attachMetadataFailed(function(oEvent) {
+				var oParams = oEvent.getParameters();
+				this._showMetadataError(oParams.message, oParams.statusText);
+			}, this);			
 		},
+		
+		_showServiceError: function(sError, sDetails) {
+			if (this._bMessageOpen) {
+				return;
+			}
+			this._bMessageOpen = true;
+			MessageBox.error(
+				sError, {
+					id: "serviceErrorMessageBox",
+					details: sDetails,
+					actions: [MessageBox.Action.CLOSE],
+					onClose: function() {
+						this._bMessageOpen = false;
+					}.bind(this)
+				}
+			);
+		},		
+		
+		_showMetadataError: function(sError, sDetails) {
+			MessageBox.error(
+				sError, {
+					id: "metadataErrorMessageBox",
+					details: sDetails,
+					actions: [MessageBox.Action.RETRY, MessageBox.Action.CLOSE],
+					onClose: function(sAction) {
+						if (sAction === MessageBox.Action.RETRY) {
+							this._oModel.refreshMetadata();
+						}
+					}.bind(this)
+				}
+			);
+		},			
 
 		_createEntry: function() {
 
@@ -45,10 +76,14 @@ sap.ui.define([
 		},
 
 		_onCreateEntrySuccess: function(oObject) {
+			
+			MessageToast.show("Successfully created new entry!");
 			console.log("onCreateEntrySuccess");
 		},
-		_onCreateEntryError: function(oObject) {
-			console.log("onCreateEntryError");
+		_onCreateEntryError: function(oError) {
+			
+			this._showServiceError(oError.message, oError.responseText);
+			console.log("onCreateEntryError", oError);
 		},
 
 		_getPathInfo: function() {
@@ -59,14 +94,6 @@ sap.ui.define([
 				this._sPath = oPage.getBindingContext().getPath();
 			}
 			return this._sPath;
-		},
-
-		_onCreateSuccess: function(oObject, oRequest) {
-			console.log("Success");
-		},
-
-		_onCreateError: function(oError) {
-			console.log("onCreateError");
 		},
 
 		onSave: function() {

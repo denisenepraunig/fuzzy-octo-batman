@@ -1,11 +1,15 @@
-# SAPUI5 apps
+# SAPUI5 The Comprehensive Guide
 
-> CODENAME: fuzzy-octo-batman
+#### written by Christiane Goebels, Denise Nepraunig, Thilo Seidel
 
-A SAPUI5 sap.m application source code repository. Work in progress! Expect several new examples throughout the year 2015.
+This repository contains the source code for the [SAPUI5 Comprehensive Guide](https://www.sap-press.com/sapui5_3980/).
 
-The examples are created with SAP Web IDE.
+The examples are created with SAP Web IDE. When you want to run a specific example, right click the html file and choose **"Run -> Run as -> Web Application"**.
 
-[@denisenepraunig](https://twitter.com/denisenepraunig)
+![Run examples](run-as-webide.png)
 
-[My SCN Profile](http://scn.sap.com/people/denise.nepraunig.sap)
+[@denisenepraunig - Denise Nepraunig](https://twitter.com/denisenepraunig)
+
+[@learnui5 - Christiane Goebels](https://twitter.com/learnui5)
+
+[@ThiloDev - Thilo Seidel](https://twitter.com/ThiloDev)

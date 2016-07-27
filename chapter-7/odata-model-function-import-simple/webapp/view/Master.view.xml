@@ -1,6 +1,6 @@
 <mvc:View
 	xmlns:mvc="sap.ui.core.mvc"
-	controllerName="sapui5.demo.odata.filter.sort.controller.Master"
+	controllerName="sapui5.demo.odata.function.importsimple.controller.Master"
 	xmlns="sap.m">
 	<Page
 		title="Products Function Import">

@@ -1,9 +1,9 @@
 sap.ui.define([
-		"sapui5/demo/odata/readingdata/bestpractice/controller/BaseController"
+		"sapui5/demo/odata/oneway/controller/BaseController"
 	], function (BaseController) {
 	"use strict";
 
-	return BaseController.extend("sapui5.demo.odata.readingdata.bestpractice.controller.Master", {
+	return BaseController.extend("sapui5.demo.odata.oneway.controller.Master", {
 		
 		_getPathInfo: function() {
 			

@@ -1,10 +1,10 @@
 sap.ui.define([
-		"sapui5/demo/odata/filter/sort/controller/BaseController",
+		"sapui5/demo/odata/function/importsimple/controller/BaseController",
 		"sap/ui/model/json/JSONModel"
 	], function (BaseController, JSONModel) {
 	"use strict";
 
-	return BaseController.extend("sapui5.demo.odata.filter.sort.controller.Master", {
+	return BaseController.extend("sapui5.demo.odata.function.importsimple.controller.Master", {
 		
 		onInit : function() {
 

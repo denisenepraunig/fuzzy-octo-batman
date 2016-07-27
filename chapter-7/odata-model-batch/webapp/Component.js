@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(UIComponent) {
 	"use strict";
 
-	return UIComponent.extend("sapui5.demo.odata.filter.sort.Component", {
+	return UIComponent.extend("sapui5.demo.odata.batch.Component", {
 
 		metadata: {
 			manifest: "json"

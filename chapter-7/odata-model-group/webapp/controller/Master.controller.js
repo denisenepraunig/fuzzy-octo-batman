@@ -1,12 +1,12 @@
 sap.ui.define([
-		"sapui5/demo/odata/filter/sort/controller/BaseController",
+		"sapui5/demo/odata/group/controller/BaseController",
 		"sap/ui/model/Filter",
 		"sap/ui/model/FilterOperator",
 		"sap/ui/model/Sorter"
 	], function (BaseController, Filter, FilterOperator, Sorter) {
 	"use strict";
 
-	return BaseController.extend("sapui5.demo.odata.filter.sort.controller.Master", {
+	return BaseController.extend("sapui5.demo.odata.group.controller.Master", {
 		
 		onInit : function() {
 			this._sorter = new Sorter("ProductName", false);

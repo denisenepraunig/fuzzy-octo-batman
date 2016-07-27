@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("sapui5.demo.odata.filter.sort.BaseController", {
+	return Controller.extend("sapui5.demo.odata.batch.BaseController", {
 		/**
 		 * Convenience method for accessing the router.
 		 * @public

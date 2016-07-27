@@ -1,5 +1,5 @@
 <mvc:View 
-	controllerName="sapui5.demo.odata.readingdata.bestpractice.controller.Master" 
+	controllerName="sapui5.demo.odata.oneway.controller.Master" 
 	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
 	<Page 
 		binding="{/Products(1)}" 

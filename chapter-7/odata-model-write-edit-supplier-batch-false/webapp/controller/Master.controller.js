@@ -1,12 +1,12 @@
 sap.ui.define([
-	"sapui5/demo/odata/readingdata/bestpractice/controller/BaseController",
+	"sapui5/demo/odata/writeedit/batchfalse/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
 	"sap/m/MessageToast",
 	"sap/m/MessageBox"
 ], function(BaseController, JSONModel, MessageToast, MessageBox) {
 	"use strict";
 
-	return BaseController.extend("sapui5.demo.odata.readingdata.bestpractice.controller.Master", {
+	return BaseController.extend("sapui5.demo.odata.writeedit.batchfalse.controller.Master", {
 
 		onInit: function() {
 			

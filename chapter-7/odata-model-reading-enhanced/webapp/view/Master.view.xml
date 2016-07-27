@@ -1,6 +1,6 @@
 <mvc:View
 	xmlns:mvc="sap.ui.core.mvc"
-	controllerName="sapui5.demo.odata.readingdata.bestpractice.controller.Master"
+	controllerName="sapui5.demo.odata.reading.enhanced.controller.Master"
 	xmlns="sap.m">
 	<Page
 		title="Product {ProductID} Info"

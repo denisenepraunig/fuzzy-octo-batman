@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(UIComponent) {
 	"use strict";
 
-	return UIComponent.extend("sapui5.demo.odata.readingdata.bestpractice.Component", {
+	return UIComponent.extend("sapui5.demo.odata.reading.navproperties.Component", {
 
 		metadata: {
 			manifest: "json"

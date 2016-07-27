@@ -1,9 +1,9 @@
 sap.ui.define([
-		"sapui5/demo/odata/readingdata/bestpractice/controller/BaseController"
+		"sapui5/demo/odata/reading/navproperties/controller/BaseController"
 	], function (BaseController) {
 	"use strict";
 
-	return BaseController.extend("sapui5.demo.odata.readingdata.bestpractice.controller.Master", {
+	return BaseController.extend("sapui5.demo.odata.reading.navproperties.controller.Master", {
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */

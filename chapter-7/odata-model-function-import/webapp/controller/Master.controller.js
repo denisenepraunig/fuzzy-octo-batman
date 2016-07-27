@@ -1,5 +1,5 @@
 sap.ui.define([
-		"sapui5/demo/odata/filter/sort/controller/BaseController",
+		"sapui5/demo/odata/function/import/controller/BaseController",
 		"sap/ui/model/Filter",
 		"sap/ui/model/FilterOperator",
 		"sap/ui/model/Sorter",
@@ -7,7 +7,7 @@ sap.ui.define([
 	], function (BaseController, Filter, FilterOperator, Sorter, JSONModel) {
 	"use strict";
 
-	return BaseController.extend("sapui5.demo.odata.filter.sort.controller.Master", {
+	return BaseController.extend("sapui5.demo.odata.function.import.controller.Master", {
 		
 		onInit : function() {
 			this._sorter = new Sorter("Name", false);

@@ -18,34 +18,30 @@
 		
 		var sServiceURL = "/destinations/northwind/V3/Northwind/Northwind.svc/";
 		
-        // instantiate the model
-        var oModel = sap.ui.model.odata.v2.ODataModel(sServiceURL);
-        
-        oModel.setUseBatch(false);
-        
-        sap.ui.getCore().setModel(oModel);
-        
-        // display the product name
-        var oText = new sap.m.Text({
-        	text: "Product name: {ProductName}"
-        });
-        oText.bindElement("/Products(1)")
-        
-        oText.addStyleClass("sapUiMediumMargin");
-        
-        var oPageMaster = new sap.m.Page("masterPage", {
-    		title : "Product 1 Info",
-    		content : [oText]
-    	});
-    	
-    	// bind the hole page to the product 1
-    	// so that the product name of product 1 wil be shown
-    	//oPageMaster.bindElement("/Products");
-        
-        var oApp = new sap.m.App();
-        oApp.addPage(oPageMaster);
-        oApp.placeAt("content");
-        
+		// instantiate the model
+		var oModel = sap.ui.model.odata.v2.ODataModel(sServiceURL);
+		
+		oModel.setUseBatch(false);
+		
+		sap.ui.getCore().setModel(oModel);
+		
+		// display the product name
+		var oText = new sap.m.Text({
+			text: "Product name: {ProductName}"
+		});
+		oText.bindElement("/Products(1)");
+		
+		oText.addStyleClass("sapUiMediumMargin");
+		
+		var oPageMaster = new sap.m.Page("masterPage", {
+			title : "Product 1 Info",
+			content : [oText]
+		});
+		
+		var oApp = new sap.m.App();
+		oApp.addPage(oPageMaster);
+		oApp.placeAt("content");
+		
 	</script>
 </head>
 

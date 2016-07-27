@@ -1,0 +1,12 @@
+#
+#Sun May 29 22:41:33 UTC 2016
+Description=access to a simple http backend
+Type=HTTP
+Authentication=NoAuthentication
+WebIDEUsage=odata_gen
+Name=simple-backend
+WebIDEEnabled=true
+CloudConnectorVersion=2
+URL=http\://nepraunig.com/sapui5book/backend/
+ProxyType=Internet
+WebIDESystem=no-cors

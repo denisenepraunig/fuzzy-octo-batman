@@ -1,0 +1,11 @@
+[{
+	"ProductID": 1,
+	"ProductName": "iPhone",
+	"SupplierID": 1,
+	"CategoryID": 1,
+	"QuantityPerUnit": "PCE",
+	"UnitPrice": 699,
+	"UnitsInStock": 17,
+	"UnitsOnOrder": 19,
+	"ReorderLevel": 10
+}]

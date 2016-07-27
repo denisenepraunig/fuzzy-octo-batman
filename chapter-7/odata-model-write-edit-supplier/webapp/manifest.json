@@ -61,7 +61,7 @@
 			 "": {
 				"dataSource": "mainService",
 				"settings": {
-					"useBatch" : false,
+					"useBatch" : true,
 					"defaultBindingMode" : "TwoWay"
 				}
 			},

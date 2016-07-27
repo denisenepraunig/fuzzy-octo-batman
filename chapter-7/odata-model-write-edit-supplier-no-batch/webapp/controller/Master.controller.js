@@ -1,17 +1,24 @@
 sap.ui.define([
 	"sapui5/demo/odata/readingdata/bestpractice/controller/BaseController",
+	"sap/ui/model/json/JSONModel",
 	"sap/m/MessageToast",
 	"sap/m/MessageBox"
-], function(BaseController, MessageToast, MessageBox) {
+], function(BaseController, JSONModel, MessageToast, MessageBox) {
 	"use strict";
 
 	return BaseController.extend("sapui5.demo.odata.readingdata.bestpractice.controller.Master", {
 
 		onInit: function() {
-			this.getRouter().getRoute("master").attachPatternMatched(this.onPatternMatched, this);
+			
+			var oModel = new sap.ui.model.json.JSONModel({
+				createMode : true
+			});
+			this.getView().setModel(oModel, "viewModel");
+			
+			this.getRouter().getRoute("master").attachPatternMatched(this.onAdd, this);
 		},
 
-		onPatternMatched: function() {
+		onAdd: function() {
 			
 			// as long as we don't have successfully loaded the metadata
 			// we set the view to busy
@@ -120,6 +127,7 @@ sap.ui.define([
 		_bindView : function (sObjectPath) {
 			var oView = this.getView();
 			oView.bindElement(sObjectPath);
+			oView.getModel("viewModel").setProperty("/createMode", false);
 		},
 
 		_onCreateEntryError: function(oError) {

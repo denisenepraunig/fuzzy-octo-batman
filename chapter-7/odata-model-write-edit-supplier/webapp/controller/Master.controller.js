@@ -67,7 +67,7 @@ sap.ui.define([
 		_bindView : function (sObjectPath) {
 			var oView = this.getView();
 			oView.bindElement(sObjectPath);
-			this.getView().getModel("viewModel").setProperty("/createMode", false);
+			oView.getModel("viewModel").setProperty("/createMode", false);
 		},
 
 		_onCreateEntryError: function(oError) {

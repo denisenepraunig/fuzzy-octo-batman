@@ -5,15 +5,15 @@
 	xmlns:core="sap.ui.core"
 	xmlns="sap.m">
 	<Page
-		id="productInfo"
-		title="Create new supplier">
+		id="supplierInfo"
+		title="{= ${viewModel>/createMode} ? 'Create new Supplier' : 'Edit Supplier: ' + ${ID} }">
 		<content>
 			<Panel>
 				<f:SimpleForm>
 					
 					<core:Title text="Supplier Information" />
 					<Label text="Supplier ID"/>
-					<Input value="{ID}" />
+					<Input value="{ID}" enabled="{viewModel>/createMode}"/>
 					<Label text="Company Name"/>
 					<Input value="{Name}" />
 					<Label text="Street"/>

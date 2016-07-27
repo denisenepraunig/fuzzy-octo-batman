@@ -17,9 +17,26 @@ sap.ui.define([
 			this.getView().setModel(oModel, "viewModel");
 
 			this.getRouter().getRoute("master").attachPatternMatched(this.onAdd, this);
-			// this.getModel() of BaseController does not work here!
-			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
+		},
 
+		_showMetadataError: function(sError, sDetails) {
+			MessageBox.error(
+				sError, {
+					id: "metadataErrorMessageBox",
+					details: sDetails,
+					actions: [MessageBox.Action.RETRY, MessageBox.Action.CLOSE],
+					onClose: function(sAction) {
+						if (sAction === MessageBox.Action.RETRY) {
+							this._oModel.refreshMetadata();
+						}
+					}.bind(this)
+				}
+			);
+		},
+		
+		_onMetadataLoaded: function() {
+			this.getView().setBusy(false);
+			this._createEntry();
 		},
 
 		_onRequestCompleted: function(oEvent) {
@@ -35,21 +52,20 @@ sap.ui.define([
 			console.log("onUpdateEntrySuccess");
 		},
 
-		_onMetadataLoaded: function() {
-
-			this._bMetadtaLoaded = true;
-			if (this._bRoutingReady) {
-				this._createEntry();
-			}
-		},
-
 		onAdd: function() {
 
-			this._bRoutingReady = true;
-
-			if (this._bMetadtaLoaded) {
-				this._createEntry();
-			}
+			// as long as we don't have successfully loaded the metadata
+			// we set the view to busy
+			this.getView().setBusy(true);
+			
+			this._oModel = this.getModel();
+			this._oModel.metadataLoaded().then(this._onMetadataLoaded.bind(this));
+			
+			this._oModel.attachMetadataFailed(function(oEvent) {
+				var oParams = oEvent.getParameters();
+				this._showMetadataError(oParams.message, oParams.statusText);
+			}, this);
+			
 		},
 
 		_createEntry: function() {

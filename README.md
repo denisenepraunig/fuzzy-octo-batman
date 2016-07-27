@@ -1,5 +1,8 @@
 # SAPUI5 The Comprehensive Guide
 
+![SAPUI5 The Comprehensive Guide](https://s3-eu-west-1.amazonaws.com/cover2.galileo-press.de/print/9781493213207_267_2d.png)
+
+
 #### written by Christiane Goebels, Denise Nepraunig, Thilo Seidel
 
 This repository contains the source code for the [SAPUI5 Comprehensive Guide](https://www.sap-press.com/sapui5_3980/).

@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(UIComponent) {
 	"use strict";
 
-	return UIComponent.extend("sapui5.demo.advanced.fragments.Component", {
+	return UIComponent.extend("sapui5.demo.googlemaps.Component", {
 
 		metadata: {
 			manifest: "json"

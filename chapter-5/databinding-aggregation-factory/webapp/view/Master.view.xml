@@ -1,0 +1,47 @@
+<mvc:View
+    controllerName="sapui5.demo.db.af.controller.Master"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page
+		id="page"
+		navButtonPress="onNavBack"
+		showNavButton="true"
+		title="Suppliers">
+		<content>
+			<Table
+				id="table"
+				width="auto"
+				class="sapUiResponsiveMargin"
+				items="{/Suppliers}"
+				noDataText="No Data"
+				growing="true"
+				growingScrollToLoad="true">
+				<headerToolbar>
+					<Toolbar>
+						<Title id="tableHeader" text="Suppliers List"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column id="nameColumn"><header>
+						<Text text="ID:" id="IDColumnTitle"/></header>
+					</Column>
+					<Column id="unitNumberColumn"><header>
+						<Text text="Name:" id="nameColumnTitle"/></header>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem
+						type="Navigation"
+						press="onListPress">
+						<cells>
+							<ObjectIdentifier
+								text="{ID}"/>
+							<ObjectIdentifier
+								text="{Name}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>

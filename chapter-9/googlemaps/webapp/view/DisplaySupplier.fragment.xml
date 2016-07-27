@@ -1,7 +1,7 @@
 <core:FragmentDefinition
     xmlns:core="sap.ui.core"
     xmlns="sap.m"
-    xmlns:my="sapui5.demo.advanced.fragments.controls">
+    xmlns:my="sapui5.demo.googlemaps.controls">
         <HBox>
             <VBox class="sapUiSmallMarginEnd">
                 <Label text="{i18n>SupplierID}"/>

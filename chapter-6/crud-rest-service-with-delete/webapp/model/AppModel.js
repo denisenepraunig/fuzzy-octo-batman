@@ -3,7 +3,7 @@ sap.ui.define([
 	], function (JSONModel) {
 	"use strict";
 
-	return JSONModel.extend("sapui5.demo.mvcapp.model.AppModel", {
+	return JSONModel.extend("sapui5.demo.restservice.del.model.AppModel", {
 		saveEntry : function(oObject, sUrl, sLocalPath){
 			var sType,
 			that = this,

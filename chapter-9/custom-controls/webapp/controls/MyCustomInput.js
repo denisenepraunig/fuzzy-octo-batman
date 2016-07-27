@@ -6,7 +6,7 @@ sap.ui.define([
   "sap/m/Input"
 ], function (Control, Grid, GridData, Icon, Input) {
 	"use strict";
-    return Control.extend("sapui5.demo.odata.readingdata.bestpractice.controls.MyCustomInput", {
+    return Control.extend("sapui5.demo.customcontrols.controls.MyCustomInput", {
 		metadata : {
 		    properties : {
                 "value": {type: "string", defaultValue: ""},

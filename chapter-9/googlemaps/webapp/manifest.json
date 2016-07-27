@@ -42,7 +42,7 @@
 	"sap.ui5": {
 		"_version": "1.1.0",
 		"rootView": {
-			"viewName": "sapui5.demo.advanced.fragments.view.App",
+			"viewName": "sapui5.demo.googlemaps.view.App",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -68,7 +68,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "sapui5.demo.advanced.fragments.i18n.i18n"
+					"bundleName": "sapui5.demo.googlemaps.i18n.i18n"
 				}
 			}
 		},
@@ -76,7 +76,7 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "sapui5.demo.advanced.fragments.view",
+				"viewPath": "sapui5.demo.googlemaps.view",
 				"controlId": "app",
 				"controlAggregation": "pages"
 			},

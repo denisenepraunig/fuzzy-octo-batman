@@ -1,12 +1,12 @@
 sap.ui.define([
-		"sapui5/demo/mvcapp/controller/BaseController",
-		"sapui5/demo/mvcapp/model/formatter",
-		"sapui5/demo/mvcapp/model/types",
+		"sapui5/demo/manual-grouping/controller/BaseController",
+		"sapui5/demo/manual-grouping/model/formatter",
+		"sapui5/demo/manual-grouping/model/types",
 		"sap/ui/model/json/JSONModel",
 		"sap/m/MessageToast"
 	], function (BaseController, formatter, types, JSONModel, MessageToast) {
 	"use strict";
-	return BaseController.extend("sapui5.demo.mvcapp.controller.Edit", {
+	return BaseController.extend("sapui5.demo.manual-grouping.controller.Edit", {
 
         formatter: formatter,
         types: types,

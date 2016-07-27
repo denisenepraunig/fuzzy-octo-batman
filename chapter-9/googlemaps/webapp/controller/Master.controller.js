@@ -1,12 +1,12 @@
 sap.ui.define([
-	"sapui5/demo/advanced/fragments/controller/BaseController",
+	"sapui5/demo/googlemaps/controller/BaseController",
 	"sap/m/MessageToast",
 	"sap/m/MessageBox",
 	"sap/ui/model/json/JSONModel"
 ], function(BaseController, MessageToast, MessageBox, JSONModel) {
 	"use strict";
 
-	return BaseController.extend("sapui5.demo.advanced.fragments.controller.Master", {
+	return BaseController.extend("sapui5.demo.googlemaps.controller.Master", {
 
 		onInit: function() {
 		    var oModel = new JSONModel({
@@ -22,7 +22,7 @@ sap.ui.define([
 		
 		_showEdit: function(){
 		    if (!this._editFragment){
-                this._editFragment = sap.ui.xmlfragment("sapui5.demo.advanced.fragments.view.EditSupplier");
+                this._editFragment = sap.ui.xmlfragment("sapui5.demo.googlemaps.view.EditSupplier");
 		      }
 		      this._supplierPanel.removeAllContent();
 		      this._supplierPanel.addContent(this._editFragment);
@@ -30,7 +30,7 @@ sap.ui.define([
 		
 		_showDisplay: function(){
 	      if (!this._displayFragment){
-	          this._displayFragment = sap.ui.xmlfragment("sapui5.demo.advanced.fragments.view.DisplaySupplier");
+	          this._displayFragment = sap.ui.xmlfragment("sapui5.demo.googlemaps.view.DisplaySupplier");
 	      }
 	      this._supplierPanel.removeAllContent();
 	      this._supplierPanel.addContent(this._displayFragment);

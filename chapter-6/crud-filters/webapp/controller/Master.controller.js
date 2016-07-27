@@ -1,12 +1,12 @@
 sap.ui.define([
-		"sapui5/demo/mvcapp/controller/BaseController",
+		"sapui5/demo/crudfilters/controller/BaseController",
 		"sap/ui/model/Sorter",
 		"sap/ui/model/Filter",
 		"sap/ui/model/FilterOperator"
 	], function (BaseController, Sorter,Filter, FilterOperator) {
 	"use strict";
 
-	return BaseController.extend("sapui5.demo.mvcapp.controller.Master", {
+	return BaseController.extend("sapui5.demo.crudfilters.controller.Master", {
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */

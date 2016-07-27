@@ -1,0 +1,14 @@
+<mvc:View
+	controllerName="sapui5.demo.db.details.controller.Detail"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<MessagePage
+		title="Nothing found"
+		text="The resource was not found"
+		icon="{sap-icon://document}"
+		id="page">
+		<customDescription>
+			<Link id="link" text="Back to Master List" press="myNavBack" />
+		</customDescription>
+	</MessagePage>
+</mvc:View>

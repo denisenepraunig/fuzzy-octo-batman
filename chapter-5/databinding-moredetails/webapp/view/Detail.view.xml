@@ -1,0 +1,71 @@
+<mvc:View controllerName="sapui5.demo.db.details.controller.Detail" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m">
+  <Page id="page" 
+    navButtonPress="onNavPress" 
+    showNavButton="true" 
+    title="Supplier Details">
+    <content>
+      <ObjectHeader 
+        id="objectHeader" 
+        title="{
+	      path: 'Name',
+		  formatter: '.formatter.formatUpperCase'
+		}" 
+        number="ID: {ID}">
+        <attributes>
+          <ObjectAttribute 
+            text="{Address/Country}">
+          </ObjectAttribute>
+          <ObjectAttribute 
+            text="{ 
+              path: 'Address/PhoneNumber',
+              type: '.types.PhoneNumber'
+           }" />
+        </attributes>
+      </ObjectHeader>
+    	<Table
+			id="table"
+			width="auto"
+			class="sapUiResponsiveMargin"
+			items="{Products}"
+			noDataText="No Data"
+			growing="true"
+			growingScrollToLoad="true">
+			<headerToolbar>
+				<Toolbar>
+					<Title id="tableHeader" text="Suppliers Products"/>
+				</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column id="idColumn"><header>
+					<Text text="ID:" id="IDColumnTitle"/></header>
+				</Column>
+				<Column id="nameColumn">
+				  <header>
+			    	<Text text="Name:" id="nameColumnTitle"/>
+			      </header>
+				</Column>
+				<Column id="priceColumn" hAlign="Right">
+				  <header>
+			    	<Text text="Price:" id="priceColumnTitle"/>
+			      </header>
+				</Column>
+			</columns>
+		    <items>
+				<ColumnListItem>
+					<cells>
+						<ObjectIdentifier
+			    			text="{ID}"/>
+						<ObjectIdentifier
+							text="{Name}"/>
+						<ObjectNumber
+                          number="{Price}"
+                          unit="USD" />	
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+    </content>
+  </Page>
+</mvc:View>

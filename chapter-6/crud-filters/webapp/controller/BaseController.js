@@ -4,7 +4,7 @@ sap.ui.define([
 	], function (Controller, History) {
 	"use strict";
 
-	return Controller.extend("sapui5.demo.mvcapp.controller.BaseController", {
+	return Controller.extend("sapui5.demo.crudfilters.controller.BaseController", {
 		/**
 		 * Convenience method for accessing the router.
 		 * @public

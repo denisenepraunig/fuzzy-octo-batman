@@ -2,7 +2,7 @@
 	"_version": "1.0.1",
 	"sap.app": {
 		"_version": "1.0.0",
-		"id": "sapui5.demo.mvcapp",
+		"id": "sapui5.demo.restservice",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"title": "{{appTitle}}",
@@ -25,7 +25,7 @@
 	},
 	"sap.ui5": {
 	    "_version": "1.2.0",
-		"rootView": "sapui5.demo.mvcapp.view.App",
+		"rootView": "sapui5.demo.restservice.view.App",
 		"dependencies": {
 			"minUI5Version": "1.34",
 			"libs": {
@@ -48,7 +48,7 @@
 		    "i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "sapui5.demo.mvcapp.i18n.i18n"
+					"bundleName": "sapui5.demo.restservice.i18n.i18n"
 				}
 			}
 		},
@@ -56,7 +56,7 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "sapui5.demo.mvcapp.view",
+				"viewPath": "sapui5.demo.restservice.view",
 				"controlId": "app",
 				"controlAggregation": "pages",
 				"bypassed": {

@@ -1,6 +1,6 @@
 <mvc:View
 	xmlns:mvc="sap.ui.core.mvc"
-	controllerName="sapui5.demo.advanced.fragments.controller.Master"
+	controllerName="sapui5.demo.fragments.controller.Master"
 	xmlns:f="sap.ui.layout.form"
 	xmlns:core="sap.ui.core"
 	xmlns="sap.m">

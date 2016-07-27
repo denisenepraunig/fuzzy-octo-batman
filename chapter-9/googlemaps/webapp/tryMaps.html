@@ -12,21 +12,21 @@
 			data-sap-ui-libs="sap.m"
 			data-sap-ui-theme="sap_bluecrystal"
 			data-sap-ui-compatVersion="edge"
-			data-sap-ui-resourceroots='{"sapui5.demo.advanced.fragments": "./"}'>
+			data-sap-ui-resourceroots='{"sapui5.demo.googlemaps": "./"}'>
 		</script>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 		<script>
 			sap.ui.getCore().attachInit(function() {
-				jQuery.sap.registerModulePath("sapui5.demo.advanced.fragments.controls", "./controls/");
-				  jQuery.sap.require("sapui5.demo.advanced.fragments.controls.MyGoogleMaps");
-				var myGoogleMaps = new sapui5.demo.advanced.fragments.controls.MyGoogleMaps();
+				jQuery.sap.registerModulePath("sapui5.demo.googlemaps.controls", "./controls/");
+				  jQuery.sap.require("sapui5.demo.googlemaps.controls.MyGoogleMaps");
+				var myGoogleMaps = new sapui5.demo.googlemaps.controls.MyGoogleMaps();
 				myGoogleMaps.setAddress("Feldbergstr. 58, 69163 Mannheim, Germany");
 				myGoogleMaps.setZoom(15);
 				myGoogleMaps.setTitle("Hello World");
 				myGoogleMaps.placeAt("content");
-				var myGoogleMaps2 = new sapui5.demo.advanced.fragments.controls.MyGoogleMaps();
+				var myGoogleMaps2 = new sapui5.demo.googlemaps.controls.MyGoogleMaps();
 				myGoogleMaps.setAddress("Schälzigweg 92, 68723 Schwetzingen, Germany");
 				myGoogleMaps.setZoom(15);
 				myGoogleMaps.setTitle("Hello World");

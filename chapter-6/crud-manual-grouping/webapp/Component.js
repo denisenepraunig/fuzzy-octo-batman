@@ -2,12 +2,12 @@ sap.ui.define([
   "sap/ui/core/UIComponent",
   "sap/ui/model/resource/ResourceModel",
   "sap/ui/model/json/JSONModel",
-  "sapui5/demo/mvcapp/model/AppModel",
+  "sapui5/demo/manual-grouping/model/AppModel",
   "sap/ui/Device"
 	], function (UIComponent, ResourceModel, JSONModel, AppModel, Device) {
   "use strict";
 
-	return UIComponent.extend("sapui5.demo.mvcapp.Component", {
+	return UIComponent.extend("sapui5.demo.manual-grouping.Component", {
 
 		metadata : {
 			manifest: "json"

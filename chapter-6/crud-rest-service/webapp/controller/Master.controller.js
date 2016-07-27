@@ -1,9 +1,9 @@
 sap.ui.define([
-		"sapui5/demo/mvcapp/controller/BaseController"
+		"sapui5/demo/restservice/controller/BaseController"
 	], function (BaseController) {
 	"use strict";
 
-	return BaseController.extend("sapui5.demo.mvcapp.controller.Master", {
+	return BaseController.extend("sapui5.demo.restservice.controller.Master", {
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */

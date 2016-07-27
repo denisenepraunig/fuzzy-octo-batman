@@ -1,4 +1,4 @@
-<mvc:View controllerName="sapui5.demo.mvcapp.controller.Detail" 
+<mvc:View controllerName="sapui5.demo.restservice.del.controller.Detail" 
   xmlns:mvc="sap.ui.core.mvc" 
   xmlns:layout="sap.ui.layout"
   xmlns="sap.m">

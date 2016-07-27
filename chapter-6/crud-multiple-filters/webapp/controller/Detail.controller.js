@@ -1,11 +1,11 @@
 sap.ui.define([
-		"sapui5/demo/mvcapp/controller/BaseController",
-		"sapui5/demo/mvcapp/model/formatter",
-		"sapui5/demo/mvcapp/model/types",
+		"sapui5/demo/multifilters/controller/BaseController",
+		"sapui5/demo/multifilters/model/formatter",
+		"sapui5/demo/multifilters/model/types",
 		"sap/m/MessageToast"
 	], function (BaseController, formatter, types, MessageToast) {
 	"use strict";
-	return BaseController.extend("sapui5.demo.mvcapp.controller.Detail", {
+	return BaseController.extend("sapui5.demo.multifilters.controller.Detail", {
 
         formatter: formatter,
         types: types,

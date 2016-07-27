@@ -1,0 +1,14 @@
+<mvc:View
+	controllerName="sapui5.demo.db.mod.controller.Detail"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<MessagePage
+		title="{i18n>notFoundTitle}"
+		text="{i18n>notFoundText}"
+		icon="{sap-icon://document}"
+		id="page">
+		<customDescription>
+			<Link id="link" text="{i18n>backToMaster}" press="myNavBack" />
+		</customDescription>
+	</MessagePage>
+</mvc:View>

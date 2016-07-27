@@ -1,0 +1,29 @@
+<mvc:View controllerName="sapui5.demo.db.format.controller.Detail" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m">
+  <Page id="page" 
+    navButtonPress="onNavPress" 
+    showNavButton="true" 
+    title="Supplier Details">
+    <content>
+      <ObjectHeader 
+        id="objectHeader" 
+        title="{
+	      path: 'Name',
+		  formatter: '.formatter.formatUpperCase'
+		}" 
+        number="ID: {ID}">
+        <attributes>
+          <ObjectAttribute 
+            text="{Address/Country}">
+          </ObjectAttribute>
+          <ObjectAttribute 
+            text="{ 
+              path: 'Address/PhoneNumber',
+              type: '.types.PhoneNumber'
+           }" />
+        </attributes>
+      </ObjectHeader>
+    </content>
+  </Page>
+</mvc:View>

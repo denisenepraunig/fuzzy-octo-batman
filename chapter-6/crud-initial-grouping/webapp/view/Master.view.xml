@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="sapui5.demo.mvcapp.controller.Master"
+    controllerName="sapui5.demo.initial-grouping.controller.Master"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 	<Page

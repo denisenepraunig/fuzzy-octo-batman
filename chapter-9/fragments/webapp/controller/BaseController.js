@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("sapui5.demo.advanced.fragments.controller.BaseController", {
+	return Controller.extend("sapui5.demo.fragments.controller.BaseController", {
 		/**
 		 * Convenience method for accessing the router.
 		 * @public

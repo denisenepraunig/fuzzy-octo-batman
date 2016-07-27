@@ -2,7 +2,7 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
     xmlns:f="sap.ui.layout.form"
-	xmlns:my="sapui5.demo.advanced.fragments.controls">
+	xmlns:my="sapui5.demo.fragments.controls">
     	<f:SimpleForm>
             <core:Title text="Supplier Information" />
 			<Label text="Supplier ID"/>

@@ -1,0 +1,84 @@
+<mvc:View controllerName="sapui5.demo.db.calc.controller.Detail" 
+  xmlns:mvc="sap.ui.core.mvc" 
+  xmlns:layout="sap.ui.layout"
+  xmlns="sap.m">
+  <Page id="page" 
+    navButtonPress="onNavPress" 
+    showNavButton="true" 
+   	title="{i18n>detailTitle}">
+    <content>
+      <ObjectHeader 
+        id="objectHeader" 
+        title="{
+	      path: 'Name',
+		  formatter: '.formatter.formatUpperCase'
+		}" 
+       	number="{i18n>ID}: {ID}">
+        <attributes>
+          <ObjectAttribute 
+            text="{Address/City}, {Address/Country}">
+          </ObjectAttribute>
+          <ObjectAttribute 
+            text="{ 
+              path: 'Address/PhoneNumber',
+              type: '.types.PhoneNumber'
+           }" />
+        </attributes>
+      </ObjectHeader>
+    	<Table
+			id="table"
+			width="auto"
+			class="sapUiResponsiveMargin"
+			items="{path: 'Products',
+			        sorter: {
+			            path: 'Name',
+			            descending: false
+			        }}"
+			noDataText="No Data"
+			growing="true"
+			growingScrollToLoad="true">
+			<headerToolbar>
+				<Toolbar>
+					<Title id="tableHeader" text="{i18n>detailTableHeader}"/>
+					<CheckBox text="Filter Products" select="onFilterProducts" />
+				</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column id="idColumn">
+				  <header>
+				     <Toolbar design="Transparent">
+					  <Text text="{i18n>tableIDColumnTitle}:" id="IDColumnTitle"/>
+				      <Button icon="sap-icon://sort" press="onSortID" />
+				    </Toolbar>
+				  </header>
+				</Column>
+				<Column id="nameColumn">
+				  <header>
+			    	  <Text text="{i18n>tableNameColumnTitle}:" id="nameColumnTitle"/>
+			      </header>
+				</Column>
+				<Column id="priceColumn" hAlign="Right">
+				  <header>
+			    	  <Text text="{i18n>tablePriceColumnTitle}:" id="priceColumnTitle"/>
+			      </header>
+				</Column>
+			</columns>
+		    <items>
+				<ColumnListItem>
+					<cells>
+						<ObjectIdentifier
+			    			text="{ID}"/>
+						<layout:VerticalLayout>
+						    <Text text="{Name}"/>
+						    <Text text="{Allergenics}" />
+						</layout:VerticalLayout>
+						<ObjectNumber
+                          number="{Price}"
+                          unit="USD" />	
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+    </content>
+  </Page>
+</mvc:View>

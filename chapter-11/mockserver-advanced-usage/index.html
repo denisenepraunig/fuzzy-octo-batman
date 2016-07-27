@@ -8,28 +8,19 @@
 		<title>sapui5demoodataread</title>
 
 		<script id="sap-ui-bootstrap"
-			src="../resources/sap-ui-core.js"
+			src="/../../resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m"
 			data-sap-ui-theme="sap_bluecrystal"
 			data-sap-ui-compatVersion="edge"
-			data-sap-ui-resourceroots='{"sapui5.demo.odata.readingdata.bestpractice": "./webapp/"}'>
+			data-sap-ui-resourceroots='{"sapui5.demo.mockserver": "./webapp/"}'>
 		</script>
-
-		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 		<script>
 			sap.ui.require([
-				"sapui5/demo/odata/readingdata/bestpractice/localService/mockserver",
-				"sap.m.Shell"
+				"sapui5/demo/mockserver/localService/mockserver"
 			], function(MockServer, Shell) {
 				sap.ui.getCore().attachInit(function() {
 					MockServer.init();
-					new Shell({
-						app: new sap.ui.core.ComponentContainer({
-							height : "100%",
-							name : "sapui5.demo.odata.readingdata.bestpractice"
-						})
-					}).placeAt("content");
 				});
 			});
 

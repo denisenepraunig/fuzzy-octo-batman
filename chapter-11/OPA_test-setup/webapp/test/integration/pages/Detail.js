@@ -1,11 +1,13 @@
 sap.ui.define([
 	"sap/ui/test/Opa5",
-	"sap/ui/test/matchers/BindingPath"
-], function(Opa5, BindingPath) {
+	"sap/ui/test/matchers/BindingPath",
+	"my/app/test/integration/pages/Common"
+], function(Opa5, BindingPath, Common) {
 	
 	Opa5.createPageObjects({
 		
 		onTheDetailPage : {
+			baseClass: Common,
 			actions : {},
 			assertions : {
 				iSeeTheRightDetails : function() {

@@ -2,7 +2,7 @@ sap.ui.define(
   ['sap/ui/test/matchers/Matcher'],
   function(Matcher){
 
-    return Matcher.extend(my.Matcher, {
+    return Matcher.extend("my.Matcher", {
 
         metadata: {
           properties: {
@@ -14,7 +14,7 @@ sap.ui.define(
 
         isMatching: function(oControl) {
           // your specific matcher logic goes in here
-          return true||false
+          return true||false;
         }
-    })
-})
+    });
+});

@@ -8,8 +8,9 @@ sap.ui.define([
 		
 		iWaitUntilAnAggregationIsFilled : function(aggregationName) {
 			return this.waitFor({
+				controlType: "sap.m.List",
 				matchers : new AggregationFilled({
-					name : aggregationName 
+					name : "items" 
 				})
 			});
 		}

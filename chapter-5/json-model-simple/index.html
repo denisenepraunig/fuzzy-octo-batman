@@ -57,11 +57,11 @@
     	});
         
         var oTable = new sap.m.Table({
-            columns : aColumns
+            columns : aColumns,
+            width: 'auto'
         });
         
         oTable.bindItems("/Suppliers", oTemplate);
-        // DENISE: without width auto the table doesn't care about the margin
         oTable.addStyleClass("sapUiResponsiveMargin");
         
         var oPageMaster = new sap.m.Page("masterPage", {

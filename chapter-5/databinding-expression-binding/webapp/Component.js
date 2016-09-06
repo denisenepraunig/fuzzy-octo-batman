@@ -15,7 +15,7 @@ sap.ui.define([
 			},
 
 			"config": {
-				"serviceUrl": "webapp/service/data.json",
+				"serviceUrl": "service/data.json",
 				"i18nBundle": "sapui5.demo.db.exp.i18n.i18n"
 			},
 

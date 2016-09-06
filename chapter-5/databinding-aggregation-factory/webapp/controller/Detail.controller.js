@@ -2,7 +2,7 @@ sap.ui.define([
 		"sapui5/demo/db/af/controller/BaseController",
 		"sapui5/demo/db/af/model/formatter",
 		"sapui5/demo/db/af/model/types",
-		"sapui5/demo/db/af/VerticalLayout"
+		"sap/ui/layout/VerticalLayout"
 	], function (BaseController, formatter, types, VerticalLayout) {
 	"use strict";
 	return BaseController.extend("sapui5.demo.db.af.controller.Detail", {

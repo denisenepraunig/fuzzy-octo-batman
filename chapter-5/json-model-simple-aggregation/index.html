@@ -57,7 +57,8 @@
     	});
         
         var oTable = new sap.m.Table({
-            columns : aColumns
+            columns : aColumns,
+            width: 'auto'
         });
         
         oTable.bindItems("/Suppliers", oTemplate);

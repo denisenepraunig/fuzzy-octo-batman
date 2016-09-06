@@ -15,7 +15,7 @@ sap.ui.define([
 			},
 
 			"config": {
-				"serviceUrl": "webapp/service/data.json",
+				"serviceUrl": "service/data.json",
 				"i18nBundle": "sapui5.demo.db.calc2.i18n.i18n"
 			},
 
@@ -23,7 +23,7 @@ sap.ui.define([
 				"config": {
 					"routerClass": "sap.m.routing.Router",
 					"viewType": "XML",
-					"viewPath": "sapui5.demo.mvcapp.view",
+					"viewPath": "sapui5.demo.db.calc2.view",
 					"controlId": "app",
 					"controlAggregation": "pages",
 					"bypassed": {

@@ -8,14 +8,14 @@ sap.ui.define([
 	return UIComponent.extend("sapui5.demo.db.mod.Component", {
 
 		metadata : {
-			"rootView": "sapui5.demo.mvcapp.view.App",
+			"rootView": "sapui5.demo.db.mod.view.App",
 			"dependencies": {
 				"minUI5Version": "1.28.0",
 				"libs": [ "sap.ui.core", "sap.m" ]
 			},
 
 			"config": {
-				"serviceUrl": "webapp/service/data.json",
+				"serviceUrl": "service/data.json",
 				"i18nBundle": "sapui5.demo.db.mod.i18n.i18n"
 			},
 

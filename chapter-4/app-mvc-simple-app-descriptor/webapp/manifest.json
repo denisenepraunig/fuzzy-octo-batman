@@ -71,6 +71,11 @@
 				"pattern": "",
 				"name": "master",
 				"target": "master"
+			},
+			{
+				"pattern": "detail/{ID}",
+				"name": "detail",
+				"target": "detail"
 			}],
 			"targets": {
 				"master": {

@@ -11,6 +11,10 @@ The examples are created with SAP Web IDE. When you want to run a specific examp
 
 ![Run examples](run-as-webide.png)
 
+Please make sure that the **neo-app.json** file is in the root folder of your project!
+
+![neo-app.json](root-folder.png)
+
 [@denisenepraunig - Denise Nepraunig](https://twitter.com/denisenepraunig)
 
 [@learnui5 - Christiane Goebels](https://twitter.com/learnui5)
